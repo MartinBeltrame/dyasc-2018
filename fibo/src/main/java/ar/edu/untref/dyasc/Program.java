@@ -2,8 +2,11 @@ package ar.edu.untref.dyasc;
 
 public class Program {
 
-	private static int fibonacciDeUnNumero(int numero) {
-		if (numero <= 1) {
+	public static int fibonacciDeUnNumero(int numero) {
+
+		if (numero <= 0) {
+			return 0;
+		} else if (numero == 1) {
 			return 1;
 		} else {
 			return fibonacciDeUnNumero(numero - 1) + fibonacciDeUnNumero(numero - 2);
@@ -12,7 +15,7 @@ public class Program {
 
 	private static void mostrarSerieFibonacci(int numero) {
 		System.out.print("fibo<" + numero + ">:");
-		for (int i = 1; i <= numero; i++) {
+		for (int i = 0; i < numero; i++) {
 			int resultado = fibonacciDeUnNumero(i);
 			System.out.print(" " + resultado);
 		}
