@@ -4,11 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import ar.edu.untref.dyac.interfaces.IEscritorDeArchivo;
+public class Escritor {
 
-public class Escritor implements IEscritorDeArchivo {
-
-	@Override
 	public void escribir(String contenido, String nombreArchivo) {
 
 		FileOutputStream fop = null;
