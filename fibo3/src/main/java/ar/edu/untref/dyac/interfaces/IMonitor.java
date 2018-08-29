@@ -2,7 +2,7 @@ package ar.edu.untref.dyac.interfaces;
 
 public interface IMonitor {
 
-	void mostrar(int numero);
+	void construirRespuesta(int numero);
 
-	String getRespuesta();
+	void mostrar(int numero, String nombreArchivo);
 }

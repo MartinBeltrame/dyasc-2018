@@ -7,7 +7,7 @@ public class MonitorHI implements IMonitor {
 	private String respuesta = "";
 
 	@Override
-	public void mostrar(int numero) {
+	public void construirRespuesta(int numero) {
 
 		int[] serieOriginal = new int[numero];
 		respuesta = "fibo<" + numero + ">:";
@@ -21,12 +21,16 @@ public class MonitorHI implements IMonitor {
 		for (int i = 0; i < numero; i++) {
 			respuesta += " " + serieInvertida[i];
 		}
-
-		System.out.print(respuesta);
 	}
 
 	@Override
-	public String getRespuesta() {
-		return this.respuesta;
+	public void mostrar(int numero, String nombreArchivo) {
+		construirRespuesta(numero);
+		if (nombreArchivo == "") {
+			System.out.print(respuesta);
+		} else {
+			EscritorArchivos.escribir(respuesta, nombreArchivo);
+			System.out.print("fibo<" + numero + "> guardado en " + nombreArchivo);
+		}
 	}
 }

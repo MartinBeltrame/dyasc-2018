@@ -10,23 +10,23 @@ public class Program {
 		switch (tamanio) {
 
 		case 1:
-			Monitor.mostrarResultado(numero, "");
+			Monitor.mostrarResultado(numero, "", "");
 			break;
 
 		case 2:
-			Monitor.mostrarResultado(numero, argumentos[0]);
+			Monitor.mostrarResultado(numero, argumentos[0], "");
 			break;
 
 		case 3:
 			if (argumentos[1].contains("-m=")) {
 				String opcion = argumentos[0];
 				String modo = argumentos[1];
-				Monitor.mostrarResultadoConModo(numero, opcion, modo);
+				Monitor.mostrarResultadoConModo(numero, opcion, modo, "");
 			} else if (argumentos[1].contains("-f=")) {
 				String opcion = argumentos[0];
 				String nombreArchivo = argumentos[1];
 				String modo = argumentos[2];
-				// Escribe el archivo
+				Monitor.mostrarResultadoConModo(numero, opcion, modo, nombreArchivo);
 			}
 			break;
 

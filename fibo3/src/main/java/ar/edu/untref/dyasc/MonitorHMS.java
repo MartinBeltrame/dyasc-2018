@@ -7,10 +7,10 @@ public class MonitorHMS implements IMonitor {
 	private String respuesta = "";
 
 	@Override
-	public void mostrar(int numero) {
+	public void construirRespuesta(int numero) {
 
 		int[] serieOriginal = new int[numero];
-		respuesta = "fibo<" + numero + ">:s ";
+		respuesta = "fibo<" + numero + ">s: ";
 
 		for (int i = 0; i < numero; i++) {
 			int resultado = Funciones.fibonacciDeUnNumero(i);
@@ -18,13 +18,17 @@ public class MonitorHMS implements IMonitor {
 		}
 
 		int sumatoria = Funciones.sumatoria(serieOriginal);
-		respuesta += " " + sumatoria;
-
-		System.out.print(respuesta);
+		respuesta += sumatoria;
 	}
 
 	@Override
-	public String getRespuesta() {
-		return respuesta;
+	public void mostrar(int numero, String nombreArchivo) {
+		construirRespuesta(numero);
+		if (nombreArchivo == "") {
+			System.out.print(respuesta);
+		} else {
+			EscritorArchivos.escribir(respuesta, nombreArchivo);
+			System.out.print("fibo<" + numero + "> guardado en " + nombreArchivo);
+		}
 	}
 }

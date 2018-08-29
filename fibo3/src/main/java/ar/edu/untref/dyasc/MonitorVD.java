@@ -7,7 +7,7 @@ public class MonitorVD implements IMonitor {
 	private String respuesta = "";
 
 	@Override
-	public void mostrar(int numero) {
+	public void construirRespuesta(int numero) {
 
 		respuesta = "fibo<" + numero + ">:\n";
 
@@ -15,12 +15,16 @@ public class MonitorVD implements IMonitor {
 			int resultado = Funciones.fibonacciDeUnNumero(i);
 			respuesta += resultado + "\n";
 		}
-
-		System.out.print(respuesta);
 	}
 
 	@Override
-	public String getRespuesta() {
-		return respuesta;
+	public void mostrar(int numero, String nombreArchivo) {
+		construirRespuesta(numero);
+		if (nombreArchivo == "") {
+			System.out.print(respuesta);
+		} else {
+			EscritorArchivos.escribir(respuesta, nombreArchivo);
+			System.out.print("fibo<" + numero + "> guardado en " + nombreArchivo);
+		}
 	}
 }
