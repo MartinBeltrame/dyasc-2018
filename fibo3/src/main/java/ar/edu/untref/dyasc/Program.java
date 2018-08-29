@@ -7,12 +7,17 @@ public class Program {
 		int tamanio = argumentos.length;
 		Integer numero = Integer.valueOf(argumentos[tamanio - 1]);
 
-		if (tamanio == 1) {
+		switch (tamanio) {
+
+		case 1:
 			Monitor.mostrarResultado(numero, "");
-		} else if (tamanio == 2) {
-			String opcion = argumentos[0];
-			Monitor.mostrarResultado(numero, opcion);
-		} else {
+			break;
+
+		case 2:
+			Monitor.mostrarResultado(numero, argumentos[0]);
+			break;
+
+		case 3:
 			if (argumentos[1].contains("-m=")) {
 				String opcion = argumentos[0];
 				String modo = argumentos[1];
@@ -23,6 +28,11 @@ public class Program {
 				String modo = argumentos[2];
 				// Escribe el archivo
 			}
+			break;
+
+		case 4:
+
+			break;
 		}
 	}
 

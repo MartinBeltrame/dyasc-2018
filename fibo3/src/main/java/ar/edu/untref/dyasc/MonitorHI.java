@@ -4,10 +4,14 @@ import ar.edu.untref.dyac.interfaces.IMonitor;
 
 public class MonitorHI implements IMonitor {
 
+	private String respuesta = "";
+
 	@Override
 	public void mostrar(int numero) {
+
 		int[] serieOriginal = new int[numero];
-		System.out.print("fibo<" + numero + ">:");
+		respuesta = "fibo<" + numero + ">:";
+
 		for (int i = 0; i < numero; i++) {
 			int resultado = Funciones.fibonacciDeUnNumero(i);
 			serieOriginal[i] = resultado;
@@ -15,7 +19,14 @@ public class MonitorHI implements IMonitor {
 
 		int[] serieInvertida = Funciones.invertirSerie(serieOriginal);
 		for (int i = 0; i < numero; i++) {
-			System.out.print(" " + serieInvertida[i]);
+			respuesta += " " + serieInvertida[i];
 		}
+
+		System.out.print(respuesta);
+	}
+
+	@Override
+	public String getRespuesta() {
+		return this.respuesta;
 	}
 }

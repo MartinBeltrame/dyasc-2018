@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Escritor {
+public class EscritorArchivos {
 
 	public static void escribir(String contenido, String nombreArchivo) {
 

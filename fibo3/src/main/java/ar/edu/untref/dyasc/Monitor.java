@@ -19,6 +19,10 @@ public class Monitor {
 				new MonitorVI().mostrar(numero);
 				break;
 
+			case "-o=hd":
+				new MonitorHD().mostrar(numero);
+				break;
+
 			case "":
 				new MonitorHD().mostrar(numero);
 				break;

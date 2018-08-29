@@ -4,12 +4,23 @@ import ar.edu.untref.dyac.interfaces.IMonitor;
 
 public class MonitorVD implements IMonitor {
 
+	private String respuesta = "";
+
 	@Override
 	public void mostrar(int numero) {
-		System.out.println("fibo<" + numero + ">:");
+
+		respuesta = "fibo<" + numero + ">:\n";
+
 		for (int i = 0; i < numero; i++) {
 			int resultado = Funciones.fibonacciDeUnNumero(i);
-			System.out.println(resultado);
+			respuesta += resultado + "\n";
 		}
+
+		System.out.print(respuesta);
+	}
+
+	@Override
+	public String getRespuesta() {
+		return respuesta;
 	}
 }
