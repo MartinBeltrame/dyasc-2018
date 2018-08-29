@@ -1,8 +1,8 @@
 package ar.edu.untref.dyasc;
 
-import ar.edu.untref.dyac.interfaces.IMonitor;
+import ar.edu.untref.dyac.interfaces.IGenerador;
 
-public class MonitorVI implements IMonitor {
+public class GeneradorVI implements IGenerador {
 
 	private String respuesta;
 
@@ -24,13 +24,7 @@ public class MonitorVI implements IMonitor {
 	}
 
 	@Override
-	public void mostrar(int numero, String nombreArchivo) {
-		construirRespuesta(numero);
-		if (nombreArchivo == "") {
-			System.out.print(respuesta);
-		} else {
-			EscritorArchivos.escribir(respuesta, nombreArchivo);
-			System.out.print("fibo<" + numero + "> guardado en " + nombreArchivo);
-		}
+	public String getRespuesta() {
+		return respuesta;
 	}
 }

@@ -1,8 +1,8 @@
 package ar.edu.untref.dyac.interfaces;
 
-public interface IMonitor {
+public interface IGenerador {
 
 	void construirRespuesta(int numero);
 
-	void mostrar(int numero, String nombreArchivo);
+	String getRespuesta();
 }
