@@ -60,7 +60,7 @@ public class Monitor {
 		}
 	}
 
-	public static void mostrar(int numero, String nombreArchivo, IGenerador iGenerador) {
+	private static void mostrar(int numero, String nombreArchivo, IGenerador iGenerador) {
 		
 		iGenerador.construirRespuesta(numero);
 		String respuesta = iGenerador.getRespuesta();
