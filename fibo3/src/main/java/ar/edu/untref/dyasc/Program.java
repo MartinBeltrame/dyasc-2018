@@ -5,34 +5,27 @@ public class Program {
 	private static void capturarArgumentos(String[] argumentos) {
 
 		int tamanio = argumentos.length;
-		Integer numero = Integer.valueOf(argumentos[tamanio - 1]);
 
-		switch (tamanio) {
+		if (tamanio > 0 && tamanio <= 4) {
 
-		case 1:
-			Monitor.mostrarResultado(numero, "", "");
-			break;
+			Integer numero = Integer.valueOf(argumentos[tamanio - 1]);
 
-		case 2:
-			Monitor.mostrarResultado(numero, argumentos[0], "");
-			break;
-
-		case 3:
-			if (argumentos[1].contains("-m=")) {
-				String opcion = argumentos[0];
-				String modo = argumentos[1];
-				Monitor.mostrarResultadoConModo(numero, opcion, modo, "");
-			} else if (argumentos[1].contains("-f=")) {
-				String opcion = argumentos[0];
-				String nombreArchivo = argumentos[1];
-				String modo = argumentos[2];
-				Monitor.mostrarResultadoConModo(numero, opcion, modo, nombreArchivo);
+			if (tamanio == 1) {
+				Monitor.mostrarResultado(numero, "", "");
+			} else if (tamanio == 2) {
+				Monitor.mostrarResultado(numero, argumentos[0], "");
+			} else {
+				if (argumentos[1].contains("-m=")) {
+					String opcion = argumentos[0];
+					String modo = argumentos[1];
+					Monitor.mostrarResultadoConModo(numero, opcion, modo, "");
+				} else if (argumentos[1].contains("-f=")) {
+					String opcion = argumentos[0];
+					String nombreArchivo = argumentos[1];
+					String modo = argumentos[2];
+					Monitor.mostrarResultadoConModo(numero, opcion, modo, nombreArchivo);
+				}
 			}
-			break;
-
-		case 4:
-
-			break;
 		}
 	}
 
