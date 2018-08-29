@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Escritor {
 
-	public void escribir(String contenido, String nombreArchivo) {
+	public static void escribir(String contenido, String nombreArchivo) {
 
 		FileOutputStream fop = null;
 		File archivo;

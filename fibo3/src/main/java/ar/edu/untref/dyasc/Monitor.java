@@ -29,4 +29,24 @@ public class Monitor {
 			}
 		}
 	}
+	
+	public static void mostrarResultadoConModo(Integer numero, String opcion, String modo) {
+
+		if (numero != null) {
+
+			switch (opcion) {
+			case "-m=s":
+				// Muestra la sumatoria
+				break;
+				
+			case "-m=l":
+				mostrarResultado(numero, opcion);
+				break;
+
+			default:
+				mostrarResultado(numero, opcion);
+				break;
+			}
+		}
+	}
 }

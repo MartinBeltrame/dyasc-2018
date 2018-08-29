@@ -8,7 +8,7 @@ public class MonitorVD implements IMonitor {
 	public void mostrar(int numero) {
 		System.out.println("fibo<" + numero + ">:");
 		for (int i = 0; i < numero; i++) {
-			int resultado = Funcion.fibonacciDeUnNumero(i);
+			int resultado = Funciones.fibonacciDeUnNumero(i);
 			System.out.println(resultado);
 		}
 	}

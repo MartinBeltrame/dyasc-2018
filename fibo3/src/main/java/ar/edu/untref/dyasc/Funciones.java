@@ -1,8 +1,9 @@
 package ar.edu.untref.dyasc;
 
-public class Funcion {
+public class Funciones {
 
 	public static int fibonacciDeUnNumero(int numero) {
+
 		if (numero <= 0) {
 			return 0;
 		} else if (numero == 1) {
@@ -18,6 +19,16 @@ public class Funcion {
 
 		for (int i = 0; i < serie.length; i++) {
 			resultado[i] = serie[serie.length - i - 1];
+		}
+		return resultado;
+	}
+
+	public static int sumatoria(int[] serie) {
+
+		int resultado = 0;
+
+		for (int i = 0; i < serie.length; i++) {
+			resultado += serie[i];
 		}
 		return resultado;
 	}

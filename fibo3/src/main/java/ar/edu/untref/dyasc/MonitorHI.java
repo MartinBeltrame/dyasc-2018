@@ -9,11 +9,11 @@ public class MonitorHI implements IMonitor {
 		int[] serieOriginal = new int[numero];
 		System.out.print("fibo<" + numero + ">:");
 		for (int i = 0; i < numero; i++) {
-			int resultado = Funcion.fibonacciDeUnNumero(i);
+			int resultado = Funciones.fibonacciDeUnNumero(i);
 			serieOriginal[i] = resultado;
 		}
 
-		int[] serieInvertida = Funcion.invertirSerie(serieOriginal);
+		int[] serieInvertida = Funciones.invertirSerie(serieOriginal);
 		for (int i = 0; i < numero; i++) {
 			System.out.print(" " + serieInvertida[i]);
 		}

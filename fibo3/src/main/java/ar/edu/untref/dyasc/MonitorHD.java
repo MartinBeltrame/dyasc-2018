@@ -8,7 +8,7 @@ public class MonitorHD implements IMonitor {
 	public void mostrar(int numero) {
 		System.out.print("fibo<" + numero + ">:");
 		for (int i = 0; i < numero; i++) {
-			int resultado = Funcion.fibonacciDeUnNumero(i);
+			int resultado = Funciones.fibonacciDeUnNumero(i);
 			System.out.print(" " + resultado);
 		}
 	}
