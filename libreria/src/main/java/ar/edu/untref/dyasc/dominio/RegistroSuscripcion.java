@@ -12,6 +12,10 @@ public class RegistroSuscripcion {
 	}
 
 	public void registrar(Suscripcion suscripcion) {
-		suscripciones.add(suscripcion);
+
+		Producto tipoProducto = suscripcion.getProducto();
+		if (tipoProducto.getClass() == Periodico.class || tipoProducto.getClass() == Revista.class) {
+			suscripciones.add(suscripcion);
+		}
 	}
 }

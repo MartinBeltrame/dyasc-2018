@@ -24,7 +24,7 @@ public class LibreriaDebe {
 	private Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
 
 	private Venta VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
-	private Suscripcion SUSCRIPCION = new Suscripcion();
+	private Suscripcion SUSCRIPCION = new Suscripcion(CLIENTE, PRODUCTO);
 
 	private Libreria libreria;
 
