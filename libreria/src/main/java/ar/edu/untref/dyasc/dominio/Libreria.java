@@ -5,8 +5,9 @@ public class Libreria {
 	private RegistroVentas registroVentas;
 	private RegistroSuscripcion registroSuscripciones;
 
-	public Libreria(RegistroVentas registroVentas) {
+	public Libreria(RegistroVentas registroVentas, RegistroSuscripcion registroSuscripciones) {
 		this.registroVentas = registroVentas;
+		this.registroSuscripciones = registroSuscripciones;
 	}
 
 	public void realizarVenta(Venta venta) {

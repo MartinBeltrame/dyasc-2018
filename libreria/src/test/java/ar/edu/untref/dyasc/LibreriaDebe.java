@@ -35,7 +35,7 @@ public class LibreriaDebe {
 
 	@Before
 	public void inicializar() {
-		libreria = new Libreria(registroVentas);
+		libreria = new Libreria(registroVentas, registroSuscripciones);
 	}
 
 	@Test
