@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import ar.edu.untref.dyasc.dominio.ArticulosLibreria;
 import ar.edu.untref.dyasc.dominio.Cliente;
 import ar.edu.untref.dyasc.dominio.Libro;
 import ar.edu.untref.dyasc.dominio.Mes;
@@ -59,6 +60,22 @@ public class RegistroVentasNoSuscribiblesDebe {
 		registroVentas.registrar(NUEVA_VENTA);
 
 		Double monto = 190.0;
+
+		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
+	}
+
+	@Test
+	public void devolver_el_monto_mensual_de_un_cliente_con_una_venta_con_iva() {
+
+		Producto PRODUCTO = new ArticulosLibreria(100.0);
+		Mes ENERO = Mes.ENERO;
+		Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
+
+		Venta VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
+
+		registroVentas.registrar(VENTA);
+
+		Double monto = 121.0;
 
 		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
 	}
