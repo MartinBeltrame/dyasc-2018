@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegistroSuscripcion {
-	
+
 	private List<Suscripcion> suscripciones = new ArrayList<>();
 
 	public boolean contains(Suscripcion suscripcion) {

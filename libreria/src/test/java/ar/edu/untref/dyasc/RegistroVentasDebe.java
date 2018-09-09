@@ -15,14 +15,14 @@ public class RegistroVentasDebe {
 	private Producto PRODUCTO = new Producto(100.0);
 	private Mes ENERO = Mes.ENERO;
 	private Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
-	
+
 	private Venta NUEVA_VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
 
 	private RegistroVentas registroVentas;
-	
+
 	@Before
 	public void inicializar() {
-		registroVentas = new RegistroVentas();	
+		registroVentas = new RegistroVentas();
 	}
 
 	@Test
@@ -32,20 +32,20 @@ public class RegistroVentasDebe {
 
 		Assert.assertTrue(registroVentas.contains(NUEVA_VENTA));
 	}
-	
+
 	@Test
 	public void devolver_el_monto_mensual_de_un_cliente_sin_ventas() {
-		
+
 		Double monto = 0.0;
 
 		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
 	}
-	
+
 	@Test
 	public void devolver_el_monto_mensual_de_un_cliente_con_una_venta() {
-		
+
 		registroVentas.registrar(NUEVA_VENTA);
-		
+
 		Double monto = 100.0;
 
 		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
@@ -56,7 +56,7 @@ public class RegistroVentasDebe {
 
 		registroVentas.registrar(NUEVA_VENTA);
 		registroVentas.registrar(NUEVA_VENTA);
-		
+
 		Double monto = 200.0;
 
 		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));

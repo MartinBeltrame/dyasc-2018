@@ -13,7 +13,7 @@ public class Cliente {
 		this.direccion = direccion;
 		this.dni = dni;
 	}
-	
+
 	public int getDni() {
 		return dni;
 	}

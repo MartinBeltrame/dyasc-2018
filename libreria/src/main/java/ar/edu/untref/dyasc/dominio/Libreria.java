@@ -1,7 +1,7 @@
 package ar.edu.untref.dyasc.dominio;
 
 public class Libreria {
-	
+
 	private RegistroVentas registroVentas;
 	private RegistroSuscripcion registroSuscripciones;
 

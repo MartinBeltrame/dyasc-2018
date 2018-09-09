@@ -16,12 +16,12 @@ public class RegistroSuscripcionesDebe {
 	public void inicializar() {
 		registroSuscripcion = new RegistroSuscripcion();
 	}
-	
+
 	@Test
-	public void verificar_la_suscripcion_ha_sido_registrada_correctamente() {
-		
+	public void verificar_que_la_suscripcion_ha_sido_registrada_correctamente() {
+
 		registroSuscripcion.registrar(NUEVA_SUSCRIPCION);
-		
+
 		Assert.assertTrue(registroSuscripcion.contains(NUEVA_SUSCRIPCION));
 	}
 }
