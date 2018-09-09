@@ -5,6 +5,9 @@ import java.util.List;
 
 public class RegistroVentas {
 
+	private static final double PORCENTAJE_20 = 0.2;
+	private static final double PORCENTAJE_5 = 0.05;
+
 	private List<Venta> ventas = new ArrayList<>();
 
 	public void registrar(Venta venta) {
@@ -53,7 +56,13 @@ public class RegistroVentas {
 		Double total = 0.0;
 
 		for (Producto producto : productos) {
-			total += producto.getPrecio();
+			if (producto.getClass() == Periodico.class || producto.getClass() == Revista.class) {
+				Double veintePorciento = producto.getPrecio() * PORCENTAJE_20;
+				total += producto.getPrecio() - veintePorciento;
+			} else {
+				Double cincoPorciento = producto.getPrecio() * PORCENTAJE_5;
+				total += producto.getPrecio() - cincoPorciento;
+			}
 		}
 
 		return total;
