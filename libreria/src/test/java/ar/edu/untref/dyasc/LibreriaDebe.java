@@ -17,7 +17,7 @@ import ar.edu.untref.dyasc.dominio.Venta;
 @RunWith(MockitoJUnitRunner.class)
 public class LibreriaDebe {
 
-	private Producto PRODUCTO = new Producto();
+	private Producto PRODUCTO = new Producto(100.0);
 	private Mes ENERO = Mes.ENERO;
 	private Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
 	private Venta VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
