@@ -13,26 +13,39 @@ public class RegistroVentas {
 
 	public Double getMonto(Mes mes, Cliente cliente) {
 
-		List<Venta> ventaMes = new ArrayList<>();
-		for (Venta venta : ventas) {
-			if (venta.getMes() == mes) {
-				ventaMes.add(venta);
-			}
-		}
+		List<Venta> ventaMes = ventasPorMes(mes);
+		List<Venta> ventasPorCliente = ventasPorCliente(cliente, ventaMes);
+		List<Producto> productos = productosCliente(ventasPorCliente);
 
+		return calcularMontoTotalProductos(productos);
+	}
+
+	private List<Producto> productosCliente(List<Venta> ventasPorCliente) {
+		List<Producto> productos = new ArrayList<>();
+		for (Venta venta : ventasPorCliente) {
+			productos.add(venta.getProducto());
+		}
+		return productos;
+	}
+
+	private List<Venta> ventasPorCliente(Cliente cliente, List<Venta> ventaMes) {
 		List<Venta> ventasPorCliente = new ArrayList<>();
 		for (Venta venta : ventaMes) {
 			if (venta.getCliente() == cliente) {
 				ventasPorCliente.add(venta);
 			}
 		}
+		return ventasPorCliente;
+	}
 
-		List<Producto> productos = new ArrayList<>();
-		for (Venta venta : ventasPorCliente) {
-			productos.add(venta.getProducto());
+	private List<Venta> ventasPorMes(Mes mes) {
+		List<Venta> ventaMes = new ArrayList<>();
+		for (Venta venta : ventas) {
+			if (venta.getMes() == mes) {
+				ventaMes.add(venta);
+			}
 		}
-
-		return calcularMontoTotalProductos(productos);
+		return ventaMes;
 	}
 
 	private Double calcularMontoTotalProductos(List<Producto> productos) {
