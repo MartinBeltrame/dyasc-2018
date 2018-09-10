@@ -41,10 +41,15 @@ public class Mockeador {
 		Suscripcion suscripcion1 = new Suscripcion(oscar, revista);
 		suscripciones.add(suscripcion1);
 
+		// Ventas juan
 		Venta venta1 = new Venta(revista, enero, juan);
+		Venta venta4 = new Venta(articulosLibreria, marzo, juan);
+
+		// Ventas alicias
 		Venta venta2 = new Venta(libro, enero, alicia);
 		Venta venta3 = new Venta(periodico, febrero, alicia);
-		Venta venta4 = new Venta(articulosLibreria, marzo, juan);
+
+		// Ventas Oscar
 		Venta venta5 = new Venta(revista, abril, oscar);
 
 		ventas.add(venta1);
