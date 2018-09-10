@@ -28,11 +28,6 @@ public class Mockeador {
 		clientes.add(alicia);
 		clientes.add(oscar);
 
-		Mes enero = Mes.ENERO;
-		Mes febrero = Mes.FEBRERO;
-		Mes marzo = Mes.MARZO;
-		Mes abril = Mes.ABRIL;
-
 		Revista revista = new Revista(50.0);
 		Libro libro = new Libro(300.0);
 		ArticulosLibreria articulosLibreria = new ArticulosLibreria(45.0);
@@ -42,15 +37,15 @@ public class Mockeador {
 		suscripciones.add(suscripcion1);
 
 		// Ventas juan
-		Venta venta1 = new Venta(revista, enero, juan);
-		Venta venta4 = new Venta(articulosLibreria, marzo, juan);
+		Venta venta1 = new Venta(revista, Mes.ENERO, juan);
+		Venta venta4 = new Venta(articulosLibreria, Mes.MARZO, juan);
 
 		// Ventas alicias
-		Venta venta2 = new Venta(libro, enero, alicia);
-		Venta venta3 = new Venta(periodico, febrero, alicia);
+		Venta venta2 = new Venta(libro, Mes.ENERO, alicia);
+		Venta venta3 = new Venta(periodico, Mes.FEBRERO, alicia);
 
 		// Ventas Oscar
-		Venta venta5 = new Venta(revista, abril, oscar);
+		Venta venta5 = new Venta(revista, Mes.ABRIL, oscar);
 
 		ventas.add(venta1);
 		ventas.add(venta2);
