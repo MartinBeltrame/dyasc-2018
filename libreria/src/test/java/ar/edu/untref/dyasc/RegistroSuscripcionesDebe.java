@@ -30,7 +30,7 @@ public class RegistroSuscripcionesDebe {
 
 		registroSuscripcion.registrar(SUSCRIPCION);
 
-		Assert.assertTrue(registroSuscripcion.contains(SUSCRIPCION));
+		Assert.assertTrue(registroSuscripcion.contiene(SUSCRIPCION));
 	}
 
 	@Test
@@ -45,7 +45,19 @@ public class RegistroSuscripcionesDebe {
 		registroSuscripcion.registrar(SUSCRIPCION_1);
 		registroSuscripcion.registrar(SUSCRIPCION_2);
 
-		Assert.assertFalse(registroSuscripcion.contains(SUSCRIPCION_1));
-		Assert.assertFalse(registroSuscripcion.contains(SUSCRIPCION_2));
+		Assert.assertFalse(registroSuscripcion.contiene(SUSCRIPCION_1));
+		Assert.assertFalse(registroSuscripcion.contiene(SUSCRIPCION_2));
+	}
+	
+	@Test
+	public void verificar_que_un_cliente_esta_suscripto_a_un_producto() {
+		
+		Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
+		Producto PRODUCTO = new Periodico(100.0);
+		Suscripcion SUSCRIPCION = new Suscripcion(CLIENTE, PRODUCTO);
+
+		registroSuscripcion.registrar(SUSCRIPCION);
+		
+		Assert.assertTrue(registroSuscripcion.contiene(CLIENTE));
 	}
 }

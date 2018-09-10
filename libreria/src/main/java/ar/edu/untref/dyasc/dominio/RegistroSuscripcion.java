@@ -7,8 +7,18 @@ public class RegistroSuscripcion {
 
 	private List<Suscripcion> suscripciones = new ArrayList<>();
 
-	public boolean contains(Suscripcion suscripcion) {
+	public boolean contiene(Suscripcion suscripcion) {
 		return suscripciones.contains(suscripcion);
+	}
+
+	public boolean contiene(Cliente cliente) {
+
+		for (Suscripcion suscripcion : suscripciones) {
+			if (suscripcion.getCliente() == cliente) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void registrar(Suscripcion suscripcion) {

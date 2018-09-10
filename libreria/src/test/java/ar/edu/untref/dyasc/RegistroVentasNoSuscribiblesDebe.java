@@ -32,7 +32,7 @@ public class RegistroVentasNoSuscribiblesDebe {
 
 		registroVentas.registrar(NUEVA_VENTA);
 
-		Assert.assertTrue(registroVentas.contains(NUEVA_VENTA));
+		Assert.assertTrue(registroVentas.contiene(NUEVA_VENTA));
 	}
 
 	@Test

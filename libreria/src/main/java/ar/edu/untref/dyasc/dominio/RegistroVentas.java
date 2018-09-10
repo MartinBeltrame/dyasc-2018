@@ -5,10 +5,18 @@ import java.util.List;
 
 public class RegistroVentas {
 
+	private static final double PORCENTAJE_20 = 0.2;
+	private static final double PORCENTAJE_5 = 0.05;
+	private static final double IVA = 0.21;
+	
 	private List<Venta> ventas = new ArrayList<>();
 
 	public void registrar(Venta venta) {
 		ventas.add(venta);
+	}
+	
+	public boolean contiene(Venta venta) {
+		return ventas.contains(venta);
 	}
 
 	public Double getMonto(Mes mes, Cliente cliente) {
@@ -17,7 +25,7 @@ public class RegistroVentas {
 		List<Venta> ventasPorCliente = ventasPorCliente(cliente, ventaMes);
 		List<Producto> productos = productosCliente(ventasPorCliente);
 
-		return calcularMontoTotalProductos(productos);
+		return calcularMontoTotal(productos, cliente);
 	}
 
 	private List<Producto> productosCliente(List<Venta> ventasPorCliente) {
@@ -48,7 +56,7 @@ public class RegistroVentas {
 		return ventaMes;
 	}
 
-	private Double calcularMontoTotalProductos(List<Producto> productos) {
+	private Double calcularMontoTotal(List<Producto> productos, Cliente cliente) {
 
 		Double total = 0.0;
 
@@ -57,9 +65,5 @@ public class RegistroVentas {
 		}
 
 		return total;
-	}
-
-	public boolean contains(Venta venta) {
-		return ventas.contains(venta);
 	}
 }
