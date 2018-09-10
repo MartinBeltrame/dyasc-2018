@@ -11,8 +11,9 @@ import ar.edu.untref.dyasc.dominio.Mes;
 import ar.edu.untref.dyasc.dominio.Producto;
 import ar.edu.untref.dyasc.dominio.RegistroVentas;
 import ar.edu.untref.dyasc.dominio.Venta;
+import ar.edu.untref.dyasc.servicios.ServicioVentas;
 
-public class RegistroVentasNoSuscribiblesDebe {
+public class ServicioVentasNoSuscribiblesDebe {
 
 	private Producto PRODUCTO = new Libro(100.0);
 	private Mes ENERO = Mes.ENERO;
@@ -20,19 +21,13 @@ public class RegistroVentasNoSuscribiblesDebe {
 
 	private Venta NUEVA_VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
 
+	private ServicioVentas servicioVentas;
 	private RegistroVentas registroVentas;
 
 	@Before
 	public void inicializar() {
 		registroVentas = new RegistroVentas();
-	}
-
-	@Test
-	public void verificar_que_la_venta_ha_sido_registrada() {
-
-		registroVentas.registrar(NUEVA_VENTA);
-
-		Assert.assertTrue(registroVentas.contiene(NUEVA_VENTA));
+		servicioVentas = new ServicioVentas(registroVentas);
 	}
 
 	@Test
@@ -40,7 +35,7 @@ public class RegistroVentasNoSuscribiblesDebe {
 
 		Double monto = 0.0;
 
-		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
+		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
 	@Test
@@ -50,7 +45,7 @@ public class RegistroVentasNoSuscribiblesDebe {
 
 		Double monto = 95.0;
 
-		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
+		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
 	@Test
@@ -61,7 +56,7 @@ public class RegistroVentasNoSuscribiblesDebe {
 
 		Double monto = 190.0;
 
-		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
+		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
 	@Test
@@ -77,6 +72,6 @@ public class RegistroVentasNoSuscribiblesDebe {
 
 		Double monto = 121.0;
 
-		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
+		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 }

@@ -48,16 +48,16 @@ public class RegistroSuscripcionesDebe {
 		Assert.assertFalse(registroSuscripcion.contiene(SUSCRIPCION_1));
 		Assert.assertFalse(registroSuscripcion.contiene(SUSCRIPCION_2));
 	}
-	
+
 	@Test
 	public void verificar_que_un_cliente_esta_suscripto_a_un_producto() {
-		
+
 		Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
 		Producto PRODUCTO = new Periodico(100.0);
 		Suscripcion SUSCRIPCION = new Suscripcion(CLIENTE, PRODUCTO);
 
 		registroSuscripcion.registrar(SUSCRIPCION);
-		
+
 		Assert.assertTrue(registroSuscripcion.contiene(CLIENTE));
 	}
 }

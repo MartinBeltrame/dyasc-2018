@@ -10,8 +10,9 @@ import ar.edu.untref.dyasc.dominio.Periodico;
 import ar.edu.untref.dyasc.dominio.Producto;
 import ar.edu.untref.dyasc.dominio.RegistroVentas;
 import ar.edu.untref.dyasc.dominio.Venta;
+import ar.edu.untref.dyasc.servicios.ServicioVentas;
 
-public class RegistroVentasSuscribiblesDebe {
+public class ServicioVentasSuscribiblesDebe {
 
 	private Producto PRODUCTO = new Periodico(100.0);
 	private Mes ENERO = Mes.ENERO;
@@ -19,11 +20,13 @@ public class RegistroVentasSuscribiblesDebe {
 
 	private Venta NUEVA_VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
 
+	private ServicioVentas servicioVentas;
 	private RegistroVentas registroVentas;
 
 	@Before
 	public void inicializar() {
 		registroVentas = new RegistroVentas();
+		servicioVentas = new ServicioVentas(registroVentas);
 	}
 
 	@Test
@@ -33,7 +36,7 @@ public class RegistroVentasSuscribiblesDebe {
 
 		Double monto = 80.0;
 
-		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
+		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
 	@Test
@@ -44,7 +47,6 @@ public class RegistroVentasSuscribiblesDebe {
 
 		Double monto = 160.0;
 
-		Assert.assertEquals(monto, registroVentas.getMonto(ENERO, CLIENTE));
+		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
-
 }
