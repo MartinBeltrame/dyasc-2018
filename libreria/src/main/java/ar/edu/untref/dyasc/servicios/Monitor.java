@@ -12,7 +12,9 @@ public class Monitor {
 	}
 
 	public String mostrarResultado(Mes mes, Cliente cliente) {
+
 		Double monto = servicioVentas.getMonto(mes, cliente);
+
 		String resultado = "Cliente: " + cliente.getNombre() + "\n" + "Mes: " + mes.toString() + "\n" + "Monto: "
 				+ monto;
 		imprimirResultado(resultado);
@@ -20,6 +22,6 @@ public class Monitor {
 	}
 
 	private void imprimirResultado(String resultado) {
-		System.out.print(resultado);
+		System.out.println(resultado + "\n");
 	}
 }

@@ -47,7 +47,7 @@ public class ServicioVentas {
 	private List<Venta> ventasPorCliente(Cliente cliente, List<Venta> ventaMes) {
 		List<Venta> ventasPorCliente = new ArrayList<>();
 		for (Venta venta : ventaMes) {
-			if (venta.getCliente() == cliente) {
+			if (venta.getCliente().equals(cliente)) {
 				ventasPorCliente.add(venta);
 			}
 		}
@@ -57,7 +57,7 @@ public class ServicioVentas {
 	private List<Venta> ventasPorMes(Mes mes) {
 		List<Venta> ventaMes = new ArrayList<>();
 		for (Venta venta : registroVentas.getVentas()) {
-			if (venta.getMes() == mes) {
+			if (venta.getMes().toString() == mes.toString()) {
 				ventaMes.add(venta);
 			}
 		}
