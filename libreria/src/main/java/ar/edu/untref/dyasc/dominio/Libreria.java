@@ -1,13 +1,17 @@
 package ar.edu.untref.dyasc.dominio;
 
+import ar.edu.untref.dyasc.servicios.Monitor;
+
 public class Libreria {
 
 	private RegistroVentas registroVentas;
 	private RegistroSuscripcion registroSuscripciones;
+	private Monitor monitor;
 
-	public Libreria(RegistroVentas registroVentas, RegistroSuscripcion registroSuscripciones) {
+	public Libreria(RegistroVentas registroVentas, RegistroSuscripcion registroSuscripciones, Monitor monitor) {
 		this.registroVentas = registroVentas;
 		this.registroSuscripciones = registroSuscripciones;
+		this.monitor = monitor;
 	}
 
 	public void realizarVenta(Venta venta) {
@@ -16,5 +20,9 @@ public class Libreria {
 
 	public void realizarSuscripcion(Suscripcion suscripcion) {
 		registroSuscripciones.registrar(suscripcion);
+	}
+
+	public void obtenerMonto(Mes mes, Cliente cliente) {
+		monitor.mostrarResultado(mes, cliente);
 	}
 }
