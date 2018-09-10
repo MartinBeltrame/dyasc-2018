@@ -8,6 +8,7 @@ import ar.edu.untref.dyasc.dominio.Cliente;
 import ar.edu.untref.dyasc.dominio.Mes;
 import ar.edu.untref.dyasc.dominio.Periodico;
 import ar.edu.untref.dyasc.dominio.Producto;
+import ar.edu.untref.dyasc.dominio.RegistroSuscripcion;
 import ar.edu.untref.dyasc.dominio.RegistroVentas;
 import ar.edu.untref.dyasc.dominio.Revista;
 import ar.edu.untref.dyasc.dominio.Venta;
@@ -19,9 +20,11 @@ public class ServicioVentas {
 	private static final double IVA = 0.21;
 
 	private RegistroVentas registroVentas;
+	private RegistroSuscripcion registroSuscripcion;
 
-	public ServicioVentas(RegistroVentas registroVentas) {
+	public ServicioVentas(RegistroVentas registroVentas, RegistroSuscripcion registroSuscripcion) {
 		this.registroVentas = registroVentas;
+		this.registroSuscripcion = registroSuscripcion;
 	}
 
 	public Double getMonto(Mes mes, Cliente cliente) {
@@ -71,7 +74,12 @@ public class ServicioVentas {
 				Double aumento = producto.getPrecio() * IVA;
 				total += producto.getPrecio() + aumento - descuento;
 			} else if (producto.getClass() == Revista.class || producto.getClass() == Periodico.class) {
-				Double descuento = producto.getPrecio() * PORCENTAJE_20;
+				Double descuento;
+				if (registroSuscripcion.contiene(cliente)) {
+					descuento = producto.getPrecio() * PORCENTAJE_20;
+				} else {
+					descuento = producto.getPrecio() * PORCENTAJE_5;
+				}
 				total += producto.getPrecio() - descuento;
 			} else {
 				Double descuento = producto.getPrecio() * PORCENTAJE_5;

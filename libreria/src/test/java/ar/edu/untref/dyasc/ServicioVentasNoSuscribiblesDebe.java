@@ -9,6 +9,7 @@ import ar.edu.untref.dyasc.dominio.Cliente;
 import ar.edu.untref.dyasc.dominio.Libro;
 import ar.edu.untref.dyasc.dominio.Mes;
 import ar.edu.untref.dyasc.dominio.Producto;
+import ar.edu.untref.dyasc.dominio.RegistroSuscripcion;
 import ar.edu.untref.dyasc.dominio.RegistroVentas;
 import ar.edu.untref.dyasc.dominio.Venta;
 import ar.edu.untref.dyasc.servicios.ServicioVentas;
@@ -17,11 +18,13 @@ public class ServicioVentasNoSuscribiblesDebe {
 
 	private ServicioVentas servicioVentas;
 	private RegistroVentas registroVentas;
+	private RegistroSuscripcion registroSuscripcion;
 
 	@Before
 	public void inicializar() {
+		registroSuscripcion = new RegistroSuscripcion();
 		registroVentas = new RegistroVentas();
-		servicioVentas = new ServicioVentas(registroVentas);
+		servicioVentas = new ServicioVentas(registroVentas, registroSuscripcion);
 	}
 
 	@Test
