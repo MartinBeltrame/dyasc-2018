@@ -15,12 +15,6 @@ import ar.edu.untref.dyasc.servicios.ServicioVentas;
 
 public class ServicioVentasNoSuscribiblesDebe {
 
-	private Producto PRODUCTO = new Libro(100.0);
-	private Mes ENERO = Mes.ENERO;
-	private Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
-
-	private Venta NUEVA_VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
-
 	private ServicioVentas servicioVentas;
 	private RegistroVentas registroVentas;
 
@@ -33,13 +27,21 @@ public class ServicioVentasNoSuscribiblesDebe {
 	@Test
 	public void devolver_el_monto_mensual_de_un_cliente_sin_ventas() {
 
+		Mes ENERO = Mes.ENERO;
+		Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
+
 		Double monto = 0.0;
 
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
 	@Test
-	public void devolver_el_monto_mensual_de_un_cliente_con_una_venta() {
+	public void devolver_el_monto_mensual_de_un_cliente_con_una_venta_con_5_porciento_de_descuento() {
+
+		Producto PRODUCTO = new Libro(100.0);
+		Mes ENERO = Mes.ENERO;
+		Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
+		Venta NUEVA_VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
 
 		registroVentas.registrar(NUEVA_VENTA);
 
@@ -49,7 +51,12 @@ public class ServicioVentasNoSuscribiblesDebe {
 	}
 
 	@Test
-	public void devolver_el_monto_mensual_de_un_cliente_con_dos_ventas() {
+	public void devolver_el_monto_mensual_de_un_cliente_con_dos_ventas_con_5_porciento_de_descuento() {
+
+		Producto PRODUCTO = new Libro(100.0);
+		Mes ENERO = Mes.ENERO;
+		Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
+		Venta NUEVA_VENTA = new Venta(PRODUCTO, ENERO, CLIENTE);
 
 		registroVentas.registrar(NUEVA_VENTA);
 		registroVentas.registrar(NUEVA_VENTA);
@@ -70,7 +77,7 @@ public class ServicioVentasNoSuscribiblesDebe {
 
 		registroVentas.registrar(VENTA);
 
-		Double monto = 121.0;
+		Double monto = 116.0;
 
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}

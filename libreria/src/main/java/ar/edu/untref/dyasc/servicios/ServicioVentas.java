@@ -3,6 +3,7 @@ package ar.edu.untref.dyasc.servicios;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.untref.dyasc.dominio.ArticulosLibreria;
 import ar.edu.untref.dyasc.dominio.Cliente;
 import ar.edu.untref.dyasc.dominio.Mes;
 import ar.edu.untref.dyasc.dominio.Producto;
@@ -63,7 +64,13 @@ public class ServicioVentas {
 		Double total = 0.0;
 
 		for (Producto producto : productos) {
-			total += producto.getPrecio();
+			Double descuento = producto.getPrecio() * PORCENTAJE_5;
+			if (producto.getClass() == ArticulosLibreria.class) {
+				Double aumento = producto.getPrecio() * IVA;
+				total += producto.getPrecio() + aumento - descuento;
+			} else {
+				total += producto.getPrecio() - descuento;
+			}
 		}
 
 		return total;
