@@ -6,8 +6,10 @@ import java.util.List;
 import ar.edu.untref.dyasc.dominio.ArticulosLibreria;
 import ar.edu.untref.dyasc.dominio.Cliente;
 import ar.edu.untref.dyasc.dominio.Mes;
+import ar.edu.untref.dyasc.dominio.Periodico;
 import ar.edu.untref.dyasc.dominio.Producto;
 import ar.edu.untref.dyasc.dominio.RegistroVentas;
+import ar.edu.untref.dyasc.dominio.Revista;
 import ar.edu.untref.dyasc.dominio.Venta;
 
 public class ServicioVentas {
@@ -64,11 +66,15 @@ public class ServicioVentas {
 		Double total = 0.0;
 
 		for (Producto producto : productos) {
-			Double descuento = producto.getPrecio() * PORCENTAJE_5;
 			if (producto.getClass() == ArticulosLibreria.class) {
+				Double descuento = producto.getPrecio() * PORCENTAJE_5;
 				Double aumento = producto.getPrecio() * IVA;
 				total += producto.getPrecio() + aumento - descuento;
+			} else if (producto.getClass() == Revista.class || producto.getClass() == Periodico.class) {
+				Double descuento = producto.getPrecio() * PORCENTAJE_20;
+				total += producto.getPrecio() - descuento;
 			} else {
+				Double descuento = producto.getPrecio() * PORCENTAJE_5;
 				total += producto.getPrecio() - descuento;
 			}
 		}
