@@ -11,14 +11,14 @@ public class Monitor {
 		this.servicioVentas = servicioVentas;
 	}
 
-	public String mostrarResultado(Mes mes, Cliente cliente) {
+	public Double mostrarResultado(Mes mes, Cliente cliente) {
 
 		Double monto = servicioVentas.getMonto(mes, cliente);
 
 		String resultado = "Cliente: " + cliente.getNombre() + "\n" + "Mes: " + mes.toString() + "\n" + "Monto: "
 				+ monto;
 		imprimirResultado(resultado);
-		return resultado;
+		return monto;
 	}
 
 	private void imprimirResultado(String resultado) {

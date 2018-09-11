@@ -22,7 +22,7 @@ public class Libreria {
 		registroSuscripciones.registrar(suscripcion);
 	}
 
-	public void obtenerMonto(Mes mes, Cliente cliente) {
-		monitor.mostrarResultado(mes, cliente);
+	public Double obtenerMonto(Mes mes, Cliente cliente) {
+		return monitor.mostrarResultado(mes, cliente);
 	}
 }
