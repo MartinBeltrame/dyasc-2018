@@ -26,7 +26,7 @@ public class ProgramDebe {
 
 	@Before
 	public void inicializar() {
-		
+
 		RegistroSuscripcion registroSuscripciones = new RegistroSuscripcion();
 		RegistroVentas registroVentas = new RegistroVentas();
 		ServicioVentas servicioVentas = new ServicioVentas(registroVentas, registroSuscripciones);
@@ -62,6 +62,22 @@ public class ProgramDebe {
 		Double resultadoJuan = 47.5;
 		Double resultadoAlicia = 285.0;
 		Double resultadoOscar = 285.0;
+
+		Assert.assertEquals(resultadoJuan, montoJuan);
+		Assert.assertEquals(resultadoAlicia, montoAlicia);
+		Assert.assertEquals(resultadoOscar, montoOscar);
+	}
+
+	@Test
+	public void obtener_el_monto_total_de_cada_cliente_para_febrero_con_productos_no_suscriptos() {
+
+		Double montoJuan = libreria.obtenerMonto(Mes.FEBRERO, juan);
+		Double montoAlicia = libreria.obtenerMonto(Mes.FEBRERO, alicia);
+		Double montoOscar = libreria.obtenerMonto(Mes.FEBRERO, oscar);
+
+		Double resultadoJuan = 0.0;
+		Double resultadoAlicia = 85.5;
+		Double resultadoOscar = 0.0;
 
 		Assert.assertEquals(resultadoJuan, montoJuan);
 		Assert.assertEquals(resultadoAlicia, montoAlicia);
