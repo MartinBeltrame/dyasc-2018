@@ -53,6 +53,19 @@ public class ProgramDebe {
 	}
 
 	@Test
+	public void devolver_cero_para_un_cliente_que_no_compro_productos_en_febrero() {
+
+		Double montoJuan = libreria.obtenerMonto(Mes.FEBRERO, juan);
+		Double montoOscar = libreria.obtenerMonto(Mes.FEBRERO, oscar);
+
+		Double resultadoJuan = 0.0;
+		Double resultadoOscar = 0.0;
+
+		Assert.assertEquals(resultadoJuan, montoJuan);
+		Assert.assertEquals(resultadoOscar, montoOscar);
+	}
+
+	@Test
 	public void obtener_el_monto_total_de_cada_cliente_para_enero_con_productos_no_suscriptos() {
 
 		Double montoJuan = libreria.obtenerMonto(Mes.ENERO, juan);
@@ -69,18 +82,22 @@ public class ProgramDebe {
 	}
 
 	@Test
-	public void obtener_el_monto_total_de_cada_cliente_para_febrero_con_productos_no_suscriptos() {
+	public void obtener_el_monto_total_un_cliente_que_compro_un_periodico_sin_estar_suscripto() {
 
-		Double montoJuan = libreria.obtenerMonto(Mes.FEBRERO, juan);
 		Double montoAlicia = libreria.obtenerMonto(Mes.FEBRERO, alicia);
-		Double montoOscar = libreria.obtenerMonto(Mes.FEBRERO, oscar);
 
-		Double resultadoJuan = 0.0;
 		Double resultadoAlicia = 85.5;
-		Double resultadoOscar = 0.0;
+
+		Assert.assertEquals(resultadoAlicia, montoAlicia);
+	}
+
+	@Test
+	public void obtener_el_monto_total_un_cliente_que_compro_un_articulo_de_libreria() {
+
+		Double montoJuan = libreria.obtenerMonto(Mes.MARZO, juan);
+
+		Double resultadoJuan = 52.2;
 
 		Assert.assertEquals(resultadoJuan, montoJuan);
-		Assert.assertEquals(resultadoAlicia, montoAlicia);
-		Assert.assertEquals(resultadoOscar, montoOscar);
 	}
 }
