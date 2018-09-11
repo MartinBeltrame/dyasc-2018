@@ -23,6 +23,7 @@ public class ProgramDebe {
 	private Cliente juan;
 	private Cliente alicia;
 	private Cliente oscar;
+	private Cliente juliana;
 
 	@Before
 	public void inicializar() {
@@ -50,6 +51,7 @@ public class ProgramDebe {
 		juan = clientes.get(0);
 		alicia = clientes.get(1);
 		oscar = clientes.get(2);
+		juliana = clientes.get(3);
 	}
 
 	@Test
