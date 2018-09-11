@@ -46,8 +46,9 @@ public class Mockeador {
 
 		// Ventas Oscar
 		Venta venta5 = new Venta(libro, Mes.ENERO, oscar);
-		Venta venta6 = new Venta(revista, Mes.ABRIL, oscar);
+		Venta venta6 = new Venta(revista, Mes.MARZO, oscar);
 		Venta venta7 = new Venta(articulosLibreria, Mes.ABRIL, oscar);
+		Venta venta8 = new Venta(libro, Mes.ABRIL, oscar);
 
 		ventas.add(venta1);
 		ventas.add(venta2);
@@ -56,6 +57,7 @@ public class Mockeador {
 		ventas.add(venta5);
 		ventas.add(venta6);
 		ventas.add(venta7);
+		ventas.add(venta8);
 	}
 
 	public static List<Cliente> getClientes() {
