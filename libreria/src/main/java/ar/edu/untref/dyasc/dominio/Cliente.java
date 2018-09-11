@@ -6,6 +6,7 @@ public class Cliente {
 	private String nombre;
 	private String apellido;
 	private String direccion;
+	private CuentaCorriente cuenta;
 
 	public Cliente(String nombre, String apellido, String direccion, int dni) {
 		this.nombre = nombre;
@@ -28,5 +29,13 @@ public class Cliente {
 
 	public String getDireccion() {
 		return direccion;
+	}
+
+	public CuentaCorriente getCuentaCorriente() {
+		return cuenta;
+	}
+	
+	public void setCuenta(CuentaCorriente cuenta) {
+		this.cuenta = cuenta;
 	}
 }
