@@ -13,4 +13,13 @@ public class ServicioCuentaCorriente {
 	public void crearCuenta(Cliente cliente) {
 		cliente.setCuenta(new CuentaCorriente());
 	}
+
+	public Double efectuarCompra(Venta venta, CuentaCorriente cuenta, Double montoCompra) {
+
+		Double montoActual = cuenta.getMonto();
+		Double montoFinal = montoActual - montoCompra;
+
+		cuenta.setMonto(montoFinal);
+		return montoFinal;
+	}
 }
