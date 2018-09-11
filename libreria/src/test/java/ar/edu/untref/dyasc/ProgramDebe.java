@@ -62,7 +62,6 @@ public class ProgramDebe {
 
 		Double resultadoJuan = 0.0;
 		Double resultadoOscar = 0.0;
-
 		Assert.assertEquals(resultadoJuan, montoJuan);
 		Assert.assertEquals(resultadoOscar, montoOscar);
 	}
@@ -77,7 +76,6 @@ public class ProgramDebe {
 		Double resultadoJuan = 47.5;
 		Double resultadoAlicia = 285.0;
 		Double resultadoOscar = 285.0;
-
 		Assert.assertEquals(resultadoJuan, montoJuan);
 		Assert.assertEquals(resultadoAlicia, montoAlicia);
 		Assert.assertEquals(resultadoOscar, montoOscar);
@@ -89,7 +87,6 @@ public class ProgramDebe {
 		Double montoAlicia = libreria.obtenerMonto(Mes.FEBRERO, alicia);
 
 		Double resultadoAlicia = 85.5;
-
 		Assert.assertEquals(resultadoAlicia, montoAlicia);
 	}
 
@@ -99,7 +96,6 @@ public class ProgramDebe {
 		Double montoJuan = libreria.obtenerMonto(Mes.MARZO, juan);
 
 		Double resultadoJuan = 52.2;
-
 		Assert.assertEquals(resultadoJuan, montoJuan);
 	}
 
@@ -109,7 +105,6 @@ public class ProgramDebe {
 		Double montoOscar = libreria.obtenerMonto(Mes.MARZO, oscar);
 
 		Double resultadoOscar = 40.0;
-
 		Assert.assertEquals(resultadoOscar, montoOscar);
 	}
 
@@ -119,7 +114,6 @@ public class ProgramDebe {
 		Double montoOscar = libreria.obtenerMonto(Mes.ABRIL, oscar);
 
 		Double resultadoOscar = 337.2;
-
 		Assert.assertEquals(resultadoOscar, montoOscar);
 	}
 
@@ -129,7 +123,6 @@ public class ProgramDebe {
 		Double montoJuliana = libreria.obtenerMonto(Mes.FEBRERO, juliana);
 
 		Double resultadoJuliana = 357.0;
-
 		Assert.assertEquals(resultadoJuliana, montoJuliana);
 	}
 }

@@ -44,8 +44,8 @@ public class MonitorDebe {
 
 		libreria.realizarVenta(VENTA);
 
-		String expected = "Cliente: " + CLIENTE.getNombre() + "\n" + "Mes: " + MES.toString() + "\n" + "Monto: " + 95.0;
-
-		Assert.assertEquals(expected, monitor.mostrarResultado(MES, CLIENTE));
+		String resultado = "Cliente: " + CLIENTE.getNombre() + "\n" + "Mes: " + MES.toString() + "\n" + "Monto: "
+				+ 95.0;
+		Assert.assertEquals(resultado, monitor.mostrarResultado(MES, CLIENTE));
 	}
 }

@@ -34,7 +34,6 @@ public class ServicioVentasNoSuscribiblesDebe {
 		Cliente CLIENTE = new Cliente("Jorge", "Rich", "Av. Siempreviva", 1123);
 
 		Double monto = 0.0;
-
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
@@ -49,7 +48,6 @@ public class ServicioVentasNoSuscribiblesDebe {
 		registroVentas.registrar(NUEVA_VENTA);
 
 		Double monto = 95.0;
-
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
@@ -65,7 +63,6 @@ public class ServicioVentasNoSuscribiblesDebe {
 		registroVentas.registrar(NUEVA_VENTA);
 
 		Double monto = 190.0;
-
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
@@ -81,7 +78,6 @@ public class ServicioVentasNoSuscribiblesDebe {
 		registroVentas.registrar(VENTA);
 
 		Double monto = 116.0;
-
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 }

@@ -41,7 +41,6 @@ public class ServicioVentasSuscribiblesDebe {
 		registroSuscripcion.registrar(SUSCRIPCION);
 
 		Double monto = 80.0;
-
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
@@ -51,7 +50,6 @@ public class ServicioVentasSuscribiblesDebe {
 		registroVentas.registrar(NUEVA_VENTA);
 
 		Double monto = 95.0;
-
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 
@@ -62,7 +60,6 @@ public class ServicioVentasSuscribiblesDebe {
 		registroVentas.registrar(NUEVA_VENTA);
 
 		Double monto = 190.0;
-
 		Assert.assertEquals(monto, servicioVentas.getMonto(ENERO, CLIENTE));
 	}
 }
