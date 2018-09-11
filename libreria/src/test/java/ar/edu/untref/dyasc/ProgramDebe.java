@@ -122,4 +122,14 @@ public class ProgramDebe {
 
 		Assert.assertEquals(resultadoOscar, montoOscar);
 	}
+
+	@Test
+	public void obtener_el_monto_de_un_cliente_que_compro_un_periodico_y_un_libro_en_abril_estando_suscripto() {
+
+		Double montoJuliana = libreria.obtenerMonto(Mes.FEBRERO, juliana);
+
+		Double resultadoJuliana = 357.0;
+
+		Assert.assertEquals(resultadoJuliana, montoJuliana);
+	}
 }
