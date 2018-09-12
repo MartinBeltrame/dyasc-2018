@@ -25,4 +25,8 @@ public class Libreria {
 	public Double obtenerMonto(Mes mes, Cliente cliente) {
 		return monitor.mostrarResultado(mes, cliente);
 	}
+
+	public Double obtenerMontoAnual(Cliente cliente) {
+		return monitor.mostrarResultado(cliente);
+	}
 }

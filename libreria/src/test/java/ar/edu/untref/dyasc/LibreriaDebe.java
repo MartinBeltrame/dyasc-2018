@@ -58,10 +58,18 @@ public class LibreriaDebe {
 	}
 
 	@Test
-	public void mostrar_el_monto_total_de_un_cliente_de_un_mes() {
+	public void mostrar_el_monto_total_de_un_cliente_en_un_mes() {
 
 		libreria.obtenerMonto(MES, CLIENTE);
 
 		Mockito.verify(monitor).mostrarResultado(MES, CLIENTE);
+	}
+
+	@Test
+	public void mostrar_el_monto_total_de_un_cliente_en_un_anio() {
+
+		libreria.obtenerMontoAnual(CLIENTE);
+
+		Mockito.verify(monitor).mostrarResultado(CLIENTE);
 	}
 }

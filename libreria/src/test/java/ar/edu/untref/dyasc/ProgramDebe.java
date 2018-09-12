@@ -125,4 +125,13 @@ public class ProgramDebe {
 		Double resultadoJuliana = 357.0;
 		Assert.assertEquals(resultadoJuliana, montoJuliana);
 	}
+	
+	@Test
+	public void obtener_el_monto_anual_de_un_cliente_no_suscripto() {
+
+		Double montoJuan = libreria.obtenerMontoAnual(juan);
+
+		Double resultadoJuan = 99.7;
+		Assert.assertEquals(resultadoJuan, montoJuan);
+	}
 }
