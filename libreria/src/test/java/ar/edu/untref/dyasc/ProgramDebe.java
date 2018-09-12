@@ -55,7 +55,7 @@ public class ProgramDebe {
 	}
 
 	@Test
-	public void devolver_cero_para_un_cliente_que_no_compro_productos_en_febrero() {
+	public void devolver_cero_para_un_cliente_que_no_compro_productos_en_un_mes() {
 
 		Double montoJuan = libreria.obtenerMonto(Mes.FEBRERO, juan);
 		Double montoOscar = libreria.obtenerMonto(Mes.FEBRERO, oscar);
@@ -67,7 +67,7 @@ public class ProgramDebe {
 	}
 
 	@Test
-	public void obtener_el_monto_total_de_cada_cliente_para_enero_con_productos_no_suscriptos() {
+	public void obtener_el_monto_total_de_cada_cliente_para_un_mismo_mes_con_productos_no_suscriptos() {
 
 		Double montoJuan = libreria.obtenerMonto(Mes.ENERO, juan);
 		Double montoAlicia = libreria.obtenerMonto(Mes.ENERO, alicia);
@@ -109,7 +109,7 @@ public class ProgramDebe {
 	}
 
 	@Test
-	public void obtener_el_monto_de_un_cliente_que_compro_mas_de_un_producto_en_abril() {
+	public void obtener_el_monto_de_un_cliente_que_compro_mas_de_un_producto_en_un_mismo_mes() {
 
 		Double montoOscar = libreria.obtenerMonto(Mes.ABRIL, oscar);
 
@@ -118,7 +118,7 @@ public class ProgramDebe {
 	}
 
 	@Test
-	public void obtener_el_monto_de_un_cliente_que_compro_un_periodico_y_un_libro_en_abril_estando_suscripto() {
+	public void obtener_el_monto_de_un_cliente_que_compro_un_periodico_y_un_libro_en_un_mismo_mes_estando_suscripto() {
 
 		Double montoJuliana = libreria.obtenerMonto(Mes.FEBRERO, juliana);
 
