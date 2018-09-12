@@ -15,6 +15,7 @@ import ar.edu.untref.dyasc.dominio.Suscripcion;
 import ar.edu.untref.dyasc.dominio.Venta;
 import ar.edu.untref.dyasc.servicios.Mockeador;
 import ar.edu.untref.dyasc.servicios.Monitor;
+import ar.edu.untref.dyasc.servicios.ServicioCuentaCorriente;
 import ar.edu.untref.dyasc.servicios.ServicioVentas;
 
 public class ProgramDebe {
@@ -24,6 +25,7 @@ public class ProgramDebe {
 	private Cliente alicia;
 	private Cliente oscar;
 	private Cliente juliana;
+	private ServicioCuentaCorriente servicioCuentaCorriente;
 
 	@Before
 	public void inicializar() {
@@ -31,6 +33,7 @@ public class ProgramDebe {
 		RegistroSuscripcion registroSuscripciones = new RegistroSuscripcion();
 		RegistroVentas registroVentas = new RegistroVentas();
 		ServicioVentas servicioVentas = new ServicioVentas(registroVentas, registroSuscripciones);
+		servicioCuentaCorriente = new ServicioCuentaCorriente();
 		Monitor monitor = new Monitor(servicioVentas);
 		libreria = new Libreria(registroVentas, registroSuscripciones, monitor);
 
@@ -125,7 +128,7 @@ public class ProgramDebe {
 		Double resultadoJuliana = 357.0;
 		Assert.assertEquals(resultadoJuliana, montoJuliana);
 	}
-	
+
 	@Test
 	public void obtener_el_monto_anual_de_un_cliente_no_suscripto() {
 
@@ -134,7 +137,7 @@ public class ProgramDebe {
 		Double resultadoJuan = 99.7;
 		Assert.assertEquals(resultadoJuan, montoJuan);
 	}
-	
+
 	@Test
 	public void obtener_el_monto_anual_de_un_cliente_suscripto() {
 
@@ -142,5 +145,18 @@ public class ProgramDebe {
 
 		Double resultado = 662.2;
 		Assert.assertEquals(resultado, monto);
+	}
+
+	@Test
+	public void efectuar_el_cobro_a_fin_de_mes_de_un_cliente() {
+
+		servicioCuentaCorriente.crearCuenta(juliana);
+		juliana.getCuentaCorriente().setMonto(1000.0);
+
+		Double montoEnero = libreria.obtenerMonto(Mes.SEPTIEMBRE, juliana);
+		servicioCuentaCorriente.efectuarCompra(juliana, Mes.SEPTIEMBRE, montoEnero);
+
+		Double resultado = 715.0;
+		Assert.assertEquals(resultado, juliana.getCuentaCorriente().getMonto());
 	}
 }

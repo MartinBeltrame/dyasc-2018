@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import ar.edu.untref.dyasc.dominio.Cliente;
 import ar.edu.untref.dyasc.dominio.CuentaCorriente;
-import ar.edu.untref.dyasc.dominio.Venta;
+import ar.edu.untref.dyasc.dominio.Mes;
 
 public class ServicioCuentaCorriente {
 
@@ -14,12 +14,12 @@ public class ServicioCuentaCorriente {
 		cliente.setCuenta(new CuentaCorriente());
 	}
 
-	public void efectuarCompra(Venta venta, Double montoCompra) {
+	public void efectuarCompra(Cliente cliente, Mes mes, Double montoCompra) {
 
-		boolean coincidenciaMes = calendario.get(Calendar.MONTH) == venta.getMes().getNumero();
+		boolean coincidenciaMes = calendario.get(Calendar.MONTH) == mes.getNumero();
 
 		if (coincidenciaMes) {
-			CuentaCorriente cuentaCorriente = venta.getCliente().getCuentaCorriente();
+			CuentaCorriente cuentaCorriente = cliente.getCuentaCorriente();
 
 			Double montoActual = cuentaCorriente.getMonto();
 			Double montoFinal = montoActual - montoCompra;

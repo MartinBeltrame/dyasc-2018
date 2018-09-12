@@ -11,7 +11,6 @@ import ar.edu.untref.dyasc.dominio.CuentaCorriente;
 import ar.edu.untref.dyasc.dominio.Libro;
 import ar.edu.untref.dyasc.dominio.Mes;
 import ar.edu.untref.dyasc.dominio.Producto;
-import ar.edu.untref.dyasc.dominio.Venta;
 import ar.edu.untref.dyasc.servicios.ServicioCuentaCorriente;
 
 public class ServicioCuentaCorrienteDebe {
@@ -39,12 +38,11 @@ public class ServicioCuentaCorrienteDebe {
 	@Test
 	public void verificar_que_el_cobro_no_se_efectua_por_no_ser_fin_de_mes() {
 
-		Venta VENTA = new Venta(PRODUCTO, MES, CLIENTE);
 		servicioCuentaCorriente.crearCuenta(CLIENTE);
 		CUENTA_CORRIENTE = CLIENTE.getCuentaCorriente();
 		CUENTA_CORRIENTE.setMonto(1000.0);
 
-		servicioCuentaCorriente.efectuarCompra(VENTA, PRODUCTO.getPrecio());
+		servicioCuentaCorriente.efectuarCompra(CLIENTE, MES, PRODUCTO.getPrecio());
 
 		Double resultado = 1000.0;
 		Assert.assertEquals(resultado, CUENTA_CORRIENTE.getMonto());
@@ -54,12 +52,11 @@ public class ServicioCuentaCorrienteDebe {
 	public void verificar_que_el_cobro_se_efectua_siendo_fin_de_mes() {
 
 		Mes MES_ACTUAL = mesActual();
-		Venta VENTA = new Venta(PRODUCTO, MES_ACTUAL, CLIENTE);
 		servicioCuentaCorriente.crearCuenta(CLIENTE);
 		CUENTA_CORRIENTE = CLIENTE.getCuentaCorriente();
 		CUENTA_CORRIENTE.setMonto(1000.0);
 
-		servicioCuentaCorriente.efectuarCompra(VENTA, PRODUCTO.getPrecio());
+		servicioCuentaCorriente.efectuarCompra(CLIENTE, MES_ACTUAL, PRODUCTO.getPrecio());
 
 		Double resultado = 900.0;
 		Assert.assertEquals(resultado, CUENTA_CORRIENTE.getMonto());
