@@ -27,21 +27,24 @@ public class ServicioCuentaCorrienteDebe {
 	@Before
 	public void inicializar() {
 		servicioCuentaCorriente = new ServicioCuentaCorriente();
-		servicioCuentaCorriente.crearCuenta(CLIENTE);
-
-		CUENTA_CORRIENTE = CLIENTE.getCuentaCorriente();
-		CUENTA_CORRIENTE.setMonto(1000.0);
 	}
 
 	@Test
 	public void crear_nueva_cuenta_corriente_a_un_cliente() {
 
+		servicioCuentaCorriente.crearCuenta(CLIENTE);
+		
 		Assert.assertTrue(CLIENTE.getCuentaCorriente() != null);
 	}
 
 	@Test
 	public void verficar_que_se_efectua_el_pago_y_se_realiza_el_descuento_en_la_cuenta_corriente() {
+		
+		servicioCuentaCorriente.crearCuenta(CLIENTE);
 
+		CUENTA_CORRIENTE = CLIENTE.getCuentaCorriente();
+		CUENTA_CORRIENTE.setMonto(1000.0);
+		
 		servicioCuentaCorriente.efectuarCompra(VENTA, CUENTA_CORRIENTE, PRODUCTO.getPrecio());
 
 		Double resultado = 900.0;
