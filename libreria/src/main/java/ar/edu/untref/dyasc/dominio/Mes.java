@@ -4,7 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum Mes {
-	ENERO, FEBRERO, MARZO, ABRIL, MAYO, JUNIO, JULIO, AGOSTO, SEPTIEMBRE, OCTUBRE, NOVIEMBRE, DICIEMBRE;
+	ENERO(0), 
+	FEBRERO(1), 
+	MARZO(2), 
+	ABRIL(3), 
+	MAYO(4), 
+	JUNIO(5), 
+	JULIO(6), 
+	AGOSTO(7), 
+	SEPTIEMBRE(8), 
+	OCTUBRE(9), 
+	NOVIEMBRE(10), 
+	DICIEMBRE(11);
+
+	private int numero;
+
+	Mes(int numero) {
+		this.numero = numero;
+	}
 
 	public static List<Mes> getMeses() {
 
@@ -24,5 +41,9 @@ public enum Mes {
 		meses.add(Mes.DICIEMBRE);
 
 		return meses;
+	}
+
+	public int getNumero() {
+		return numero;
 	}
 }
