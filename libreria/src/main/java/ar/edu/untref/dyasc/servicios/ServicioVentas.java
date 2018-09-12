@@ -36,6 +36,12 @@ public class ServicioVentas {
 		return calcularMontoTotal(productos, cliente);
 	}
 
+	public void efectuarCompra(ServicioCuentaCorriente servicioCuentaCorriente, Venta venta) {
+		Cliente cliente = venta.getCliente();
+		Double monto = getMonto(venta.getMes(), cliente);
+		servicioCuentaCorriente.efectuarCompra(venta, monto);
+	}
+
 	private List<Producto> productosCliente(List<Venta> ventasPorCliente) {
 		List<Producto> productos = new ArrayList<>();
 		for (Venta venta : ventasPorCliente) {

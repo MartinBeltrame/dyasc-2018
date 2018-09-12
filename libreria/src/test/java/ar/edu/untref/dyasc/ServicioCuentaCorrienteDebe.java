@@ -44,7 +44,7 @@ public class ServicioCuentaCorrienteDebe {
 		CUENTA_CORRIENTE = CLIENTE.getCuentaCorriente();
 		CUENTA_CORRIENTE.setMonto(1000.0);
 
-		servicioCuentaCorriente.efectuarCompra(VENTA, CUENTA_CORRIENTE, PRODUCTO.getPrecio());
+		servicioCuentaCorriente.efectuarCompra(VENTA, PRODUCTO.getPrecio());
 
 		Double resultado = 1000.0;
 		Assert.assertEquals(resultado, CUENTA_CORRIENTE.getMonto());
@@ -59,7 +59,7 @@ public class ServicioCuentaCorrienteDebe {
 		CUENTA_CORRIENTE = CLIENTE.getCuentaCorriente();
 		CUENTA_CORRIENTE.setMonto(1000.0);
 
-		servicioCuentaCorriente.efectuarCompra(VENTA, CUENTA_CORRIENTE, PRODUCTO.getPrecio());
+		servicioCuentaCorriente.efectuarCompra(VENTA, PRODUCTO.getPrecio());
 
 		Double resultado = 900.0;
 		Assert.assertEquals(resultado, CUENTA_CORRIENTE.getMonto());

@@ -14,15 +14,17 @@ public class ServicioCuentaCorriente {
 		cliente.setCuenta(new CuentaCorriente());
 	}
 
-	public void efectuarCompra(Venta venta, CuentaCorriente cuenta, Double montoCompra) {
+	public void efectuarCompra(Venta venta, Double montoCompra) {
 
 		boolean coincidenciaMes = calendario.get(Calendar.MONTH) == venta.getMes().getNumero();
 
 		if (coincidenciaMes) {
-			Double montoActual = cuenta.getMonto();
+			CuentaCorriente cuentaCorriente = venta.getCliente().getCuentaCorriente();
+
+			Double montoActual = cuentaCorriente.getMonto();
 			Double montoFinal = montoActual - montoCompra;
 
-			cuenta.setMonto(montoFinal);
+			cuentaCorriente.setMonto(montoFinal);
 		}
 	}
 }
