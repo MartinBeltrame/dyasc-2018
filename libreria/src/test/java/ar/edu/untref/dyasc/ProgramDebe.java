@@ -134,4 +134,13 @@ public class ProgramDebe {
 		Double resultadoJuan = 99.7;
 		Assert.assertEquals(resultadoJuan, montoJuan);
 	}
+	
+	@Test
+	public void obtener_el_monto_anual_de_un_cliente_suscripto() {
+
+		Double monto = libreria.obtenerMontoAnual(oscar);
+
+		Double resultado = 662.2;
+		Assert.assertEquals(resultado, monto);
+	}
 }
