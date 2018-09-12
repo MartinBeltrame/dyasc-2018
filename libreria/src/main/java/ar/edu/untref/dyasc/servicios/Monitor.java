@@ -21,7 +21,7 @@ public class Monitor {
 		return monto;
 	}
 
-	public Double mostrarResultado(Cliente cliente) {
+	public Double mostrarResultadoAnual(Cliente cliente) {
 
 		Double montoTotal = 0.0;
 		for (Mes mes : Mes.getMeses()) {

@@ -27,6 +27,6 @@ public class Libreria {
 	}
 
 	public Double obtenerMontoAnual(Cliente cliente) {
-		return monitor.mostrarResultado(cliente);
+		return monitor.mostrarResultadoAnual(cliente);
 	}
 }

@@ -70,6 +70,6 @@ public class LibreriaDebe {
 
 		libreria.obtenerMontoAnual(CLIENTE);
 
-		Mockito.verify(monitor).mostrarResultado(CLIENTE);
+		Mockito.verify(monitor).mostrarResultadoAnual(CLIENTE);
 	}
 }
