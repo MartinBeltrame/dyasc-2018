@@ -1,4 +1,4 @@
-package ar.edu.untref.dyasc.servicios;
+package ar.edu.untref.dyasc;
 
 import ar.edu.untref.dyasc.dominio.Cliente;
 import ar.edu.untref.dyasc.dominio.Mes;

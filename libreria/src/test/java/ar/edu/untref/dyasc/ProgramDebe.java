@@ -14,7 +14,6 @@ import ar.edu.untref.dyasc.dominio.RegistroVentas;
 import ar.edu.untref.dyasc.dominio.Suscripcion;
 import ar.edu.untref.dyasc.dominio.Venta;
 import ar.edu.untref.dyasc.servicios.Mockeador;
-import ar.edu.untref.dyasc.servicios.Monitor;
 import ar.edu.untref.dyasc.servicios.ServicioCuentaCorriente;
 import ar.edu.untref.dyasc.servicios.ServicioVentas;
 
