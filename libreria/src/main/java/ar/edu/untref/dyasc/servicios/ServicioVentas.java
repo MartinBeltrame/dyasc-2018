@@ -51,7 +51,7 @@ public class ServicioVentas {
 				total += producto.getPrecio() + aumento - descuento;
 			} else if (producto.getClass() == Revista.class || producto.getClass() == Periodico.class) {
 				Double descuento;
-				if (registroSuscripcion.contiene(cliente)) {
+				if (registroSuscripcion.contieneCliente(cliente)) {
 					descuento = producto.getPrecio() * PORCENTAJE_20;
 				} else {
 					descuento = producto.getPrecio() * PORCENTAJE_5;

@@ -30,7 +30,7 @@ public class RegistroSuscripcionesDebe {
 
 		registroSuscripcion.registrar(SUSCRIPCION);
 
-		Assert.assertTrue(registroSuscripcion.contiene(SUSCRIPCION));
+		Assert.assertTrue(registroSuscripcion.contieneSuscripcion(SUSCRIPCION));
 	}
 
 	@Test
@@ -45,8 +45,8 @@ public class RegistroSuscripcionesDebe {
 		registroSuscripcion.registrar(SUSCRIPCION_1);
 		registroSuscripcion.registrar(SUSCRIPCION_2);
 
-		Assert.assertFalse(registroSuscripcion.contiene(SUSCRIPCION_1));
-		Assert.assertFalse(registroSuscripcion.contiene(SUSCRIPCION_2));
+		Assert.assertFalse(registroSuscripcion.contieneSuscripcion(SUSCRIPCION_1));
+		Assert.assertFalse(registroSuscripcion.contieneSuscripcion(SUSCRIPCION_2));
 	}
 
 	@Test
@@ -58,6 +58,6 @@ public class RegistroSuscripcionesDebe {
 
 		registroSuscripcion.registrar(SUSCRIPCION);
 
-		Assert.assertTrue(registroSuscripcion.contiene(CLIENTE));
+		Assert.assertTrue(registroSuscripcion.contieneCliente(CLIENTE));
 	}
 }
