@@ -1,6 +1,5 @@
 package ar.edu.untref.dyasc.servicios;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.untref.dyasc.dominio.ArticulosLibreria;
@@ -29,9 +28,9 @@ public class ServicioVentas {
 
 	public Double getMonto(Mes mes, Cliente cliente) {
 
-		List<Venta> ventaMes = ventasPorMes(mes);
-		List<Venta> ventasPorCliente = ventasPorCliente(cliente, ventaMes);
-		List<Producto> productos = productosCliente(ventasPorCliente);
+		List<Venta> ventaMes = registroVentas.ventasPorMes(mes);
+		List<Venta> ventasPorCliente = registroVentas.ventasPorCliente(cliente, ventaMes);
+		List<Producto> productos = registroVentas.productosVentasPorCliente(ventasPorCliente);
 
 		return calcularMontoTotal(productos, cliente);
 	}
@@ -39,34 +38,6 @@ public class ServicioVentas {
 	public void efectuarCompra(ServicioCuentaCorriente servicioCuentaCorriente, Cliente cliente, Mes mes) {
 		Double monto = getMonto(mes, cliente);
 		servicioCuentaCorriente.efectuarCompra(cliente, mes, monto);
-	}
-
-	private List<Producto> productosCliente(List<Venta> ventasPorCliente) {
-		List<Producto> productos = new ArrayList<>();
-		for (Venta venta : ventasPorCliente) {
-			productos.add(venta.getProducto());
-		}
-		return productos;
-	}
-
-	private List<Venta> ventasPorCliente(Cliente cliente, List<Venta> ventaMes) {
-		List<Venta> ventasPorCliente = new ArrayList<>();
-		for (Venta venta : ventaMes) {
-			if (venta.getCliente().equals(cliente)) {
-				ventasPorCliente.add(venta);
-			}
-		}
-		return ventasPorCliente;
-	}
-
-	private List<Venta> ventasPorMes(Mes mes) {
-		List<Venta> ventaMes = new ArrayList<>();
-		for (Venta venta : registroVentas.getVentas()) {
-			if (venta.getMes().toString() == mes.toString()) {
-				ventaMes.add(venta);
-			}
-		}
-		return ventaMes;
 	}
 
 	private Double calcularMontoTotal(List<Producto> productos, Cliente cliente) {
