@@ -26,18 +26,19 @@ public class ServicioVentas {
 	}
 
 	public Double getMonto(Mes mes, Cliente cliente) {
-		
+
 		List<Producto> productos = registroVentas.getProductosPorCliente(mes, cliente);
-		return calcularMontoTotal(productos, cliente);
+		boolean clienteSuscripto = registroSuscripcion.contieneCliente(cliente);
+		return calcularMontoTotal(productos, clienteSuscripto);
 	}
 
 	public void efectuarCompra(ServicioCuentaCorriente servicioCuentaCorriente, Cliente cliente, Mes mes) {
-		
+
 		Double monto = getMonto(mes, cliente);
 		servicioCuentaCorriente.efectuarCompra(cliente, mes, monto);
 	}
 
-	private Double calcularMontoTotal(List<Producto> productos, Cliente cliente) {
+	private Double calcularMontoTotal(List<Producto> productos, boolean clienteSuscripto) {
 
 		Double total = 0.0;
 
@@ -48,7 +49,7 @@ public class ServicioVentas {
 				total += producto.getPrecio() + aumento - descuento;
 			} else if (producto.getClass() == Revista.class || producto.getClass() == Periodico.class) {
 				Double descuento;
-				if (registroSuscripcion.contieneCliente(cliente)) {
+				if (clienteSuscripto) {
 					descuento = producto.getPrecio() * PORCENTAJE_20;
 				} else {
 					descuento = producto.getPrecio() * PORCENTAJE_5;
