@@ -5,35 +5,16 @@ import ar.edu.untref.dyasc.dominio.Mes;
 
 public class Monitor {
 
-	private ServicioVentas servicioVentas;
-
-	public Monitor(ServicioVentas servicioVentas) {
-		this.servicioVentas = servicioVentas;
-	}
-
-	public Double mostrarResultado(Mes mes, Cliente cliente) {
-
-		Double monto = servicioVentas.getMonto(mes, cliente);
+	public void mostrarResultado(Mes mes, Cliente cliente, Double monto) {
 
 		String resultado = "Cliente: " + cliente.getNombre() + "\n" + "Mes: " + mes.toString() + "\n" + "Monto: "
 				+ monto;
-		imprimirResultado(resultado);
-		return monto;
+		System.out.println(resultado + "\n");
 	}
 
-	public Double mostrarResultadoAnual(Cliente cliente) {
-
-		Double montoTotal = 0.0;
-		for (Mes mes : Mes.getMeses()) {
-			montoTotal += servicioVentas.getMonto(mes, cliente);
-		}
+	public void mostrarResultadoAnual(Cliente cliente, Double montoTotal) {
 
 		String resultado = "Cliente: " + cliente.getNombre() + "\n" + "Monto Anual: " + montoTotal;
-		imprimirResultado(resultado);
-		return montoTotal;
-	}
-
-	private void imprimirResultado(String resultado) {
 		System.out.println(resultado + "\n");
 	}
 }

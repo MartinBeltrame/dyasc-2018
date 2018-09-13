@@ -15,7 +15,7 @@ import ar.edu.untref.dyasc.dominio.RegistroSuscripcion;
 import ar.edu.untref.dyasc.dominio.RegistroVentas;
 import ar.edu.untref.dyasc.dominio.Suscripcion;
 import ar.edu.untref.dyasc.dominio.Venta;
-import ar.edu.untref.dyasc.servicios.Monitor;
+import ar.edu.untref.dyasc.servicios.ServicioVentas;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LibreriaDebe {
@@ -34,11 +34,11 @@ public class LibreriaDebe {
 	@Mock
 	RegistroSuscripcion registroSuscripciones;
 	@Mock
-	Monitor monitor;
+	ServicioVentas servicioVentas;
 
 	@Before
 	public void inicializar() {
-		libreria = new Libreria(registroVentas, registroSuscripciones, monitor);
+		libreria = new Libreria(registroVentas, registroSuscripciones, servicioVentas);
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class LibreriaDebe {
 
 		libreria.obtenerMonto(MES, CLIENTE);
 
-		Mockito.verify(monitor).mostrarResultado(MES, CLIENTE);
+		Mockito.verify(servicioVentas).getMonto(MES, CLIENTE);
 	}
 
 	@Test
@@ -70,6 +70,6 @@ public class LibreriaDebe {
 
 		libreria.obtenerMontoAnual(CLIENTE);
 
-		Mockito.verify(monitor).mostrarResultadoAnual(CLIENTE);
+		Mockito.verify(servicioVentas).getMontoAnual(CLIENTE);
 	}
 }

@@ -65,4 +65,14 @@ public class ServicioVentas {
 
 		return total;
 	}
+
+	public Double getMontoAnual(Cliente cliente) {
+		
+		Double montoTotal = 0.0;
+		
+		for (Mes mes : Mes.getMeses()) {
+			montoTotal += getMonto(mes, cliente);
+		}
+		return montoTotal;
+	}
 }

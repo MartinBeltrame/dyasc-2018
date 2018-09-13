@@ -26,6 +26,7 @@ public class ProgramDebe {
 	private Cliente oscar;
 	private Cliente juliana;
 	private ServicioCuentaCorriente servicioCuentaCorriente;
+	private Monitor monitor;
 
 	@Before
 	public void inicializar() {
@@ -34,8 +35,8 @@ public class ProgramDebe {
 		RegistroVentas registroVentas = new RegistroVentas();
 		ServicioVentas servicioVentas = new ServicioVentas(registroVentas, registroSuscripciones);
 		servicioCuentaCorriente = new ServicioCuentaCorriente();
-		Monitor monitor = new Monitor(servicioVentas);
-		libreria = new Libreria(registroVentas, registroSuscripciones, monitor);
+		libreria = new Libreria(registroVentas, registroSuscripciones, servicioVentas);
+		monitor = new Monitor();
 
 		Mockeador.mockearVentas();
 
@@ -62,6 +63,8 @@ public class ProgramDebe {
 
 		Double montoJuan = libreria.obtenerMonto(Mes.FEBRERO, juan);
 		Double montoOscar = libreria.obtenerMonto(Mes.FEBRERO, oscar);
+		monitor.mostrarResultado(Mes.FEBRERO, juan, montoJuan);
+		monitor.mostrarResultado(Mes.FEBRERO, oscar, montoOscar);
 
 		Double resultadoJuan = 0.0;
 		Double resultadoOscar = 0.0;
@@ -75,6 +78,9 @@ public class ProgramDebe {
 		Double montoJuan = libreria.obtenerMonto(Mes.ENERO, juan);
 		Double montoAlicia = libreria.obtenerMonto(Mes.ENERO, alicia);
 		Double montoOscar = libreria.obtenerMonto(Mes.ENERO, oscar);
+		monitor.mostrarResultado(Mes.ENERO, juan, montoJuan);
+		monitor.mostrarResultado(Mes.ENERO, alicia, montoAlicia);
+		monitor.mostrarResultado(Mes.ENERO, oscar, montoOscar);
 
 		Double resultadoJuan = 47.5;
 		Double resultadoAlicia = 285.0;
@@ -88,6 +94,7 @@ public class ProgramDebe {
 	public void obtener_el_monto_total_un_cliente_que_compro_un_periodico_sin_estar_suscripto() {
 
 		Double montoAlicia = libreria.obtenerMonto(Mes.FEBRERO, alicia);
+		monitor.mostrarResultado(Mes.FEBRERO, alicia, montoAlicia);
 
 		Double resultadoAlicia = 85.5;
 		Assert.assertEquals(resultadoAlicia, montoAlicia);
@@ -97,6 +104,7 @@ public class ProgramDebe {
 	public void obtener_el_monto_total_un_cliente_que_compro_un_articulo_de_libreria() {
 
 		Double montoJuan = libreria.obtenerMonto(Mes.MARZO, juan);
+		monitor.mostrarResultado(Mes.MARZO, juan, montoJuan);
 
 		Double resultadoJuan = 52.2;
 		Assert.assertEquals(resultadoJuan, montoJuan);
@@ -106,6 +114,7 @@ public class ProgramDebe {
 	public void obtener_el_monto_de_un_cliente_que_compro_una_revista_estando_suscripto() {
 
 		Double montoOscar = libreria.obtenerMonto(Mes.MARZO, oscar);
+		monitor.mostrarResultado(Mes.MARZO, oscar, montoOscar);
 
 		Double resultadoOscar = 40.0;
 		Assert.assertEquals(resultadoOscar, montoOscar);
@@ -115,6 +124,7 @@ public class ProgramDebe {
 	public void obtener_el_monto_de_un_cliente_que_compro_mas_de_un_producto_en_un_mismo_mes() {
 
 		Double montoOscar = libreria.obtenerMonto(Mes.ABRIL, oscar);
+		monitor.mostrarResultado(Mes.ABRIL, oscar, montoOscar);
 
 		Double resultadoOscar = 337.2;
 		Assert.assertEquals(resultadoOscar, montoOscar);
@@ -124,6 +134,7 @@ public class ProgramDebe {
 	public void obtener_el_monto_de_un_cliente_que_compro_un_periodico_y_un_libro_en_un_mismo_mes_estando_suscripto() {
 
 		Double montoJuliana = libreria.obtenerMonto(Mes.FEBRERO, juliana);
+		monitor.mostrarResultado(Mes.FEBRERO, juliana, montoJuliana);
 
 		Double resultadoJuliana = 357.0;
 		Assert.assertEquals(resultadoJuliana, montoJuliana);
@@ -133,6 +144,7 @@ public class ProgramDebe {
 	public void obtener_el_monto_anual_de_un_cliente_no_suscripto() {
 
 		Double montoJuan = libreria.obtenerMontoAnual(juan);
+		monitor.mostrarResultadoAnual(juan, montoJuan);
 
 		Double resultadoJuan = 99.7;
 		Assert.assertEquals(resultadoJuan, montoJuan);
@@ -142,6 +154,7 @@ public class ProgramDebe {
 	public void obtener_el_monto_anual_de_un_cliente_suscripto() {
 
 		Double monto = libreria.obtenerMontoAnual(oscar);
+		monitor.mostrarResultadoAnual(oscar, monto);
 
 		Double resultado = 662.2;
 		Assert.assertEquals(resultado, monto);
