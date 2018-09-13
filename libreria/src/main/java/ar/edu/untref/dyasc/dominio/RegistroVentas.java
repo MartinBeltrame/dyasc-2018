@@ -19,7 +19,16 @@ public class RegistroVentas {
 		return ventas;
 	}
 
-	public List<Producto> productosVentasPorCliente(List<Venta> ventasPorCliente) {
+	public List<Producto> getProductosPorCliente(Mes mes, Cliente cliente) {
+
+		List<Venta> ventaMes = ventasPorMes(mes);
+		List<Venta> ventasPorCliente = ventasPorCliente(cliente, ventaMes);
+		List<Producto> productos = productosVentasPorCliente(ventasPorCliente);
+
+		return productos;
+	}
+
+	private List<Producto> productosVentasPorCliente(List<Venta> ventasPorCliente) {
 		List<Producto> productos = new ArrayList<>();
 		for (Venta venta : ventasPorCliente) {
 			productos.add(venta.getProducto());
@@ -27,7 +36,7 @@ public class RegistroVentas {
 		return productos;
 	}
 
-	public List<Venta> ventasPorCliente(Cliente cliente, List<Venta> ventaMes) {
+	private List<Venta> ventasPorCliente(Cliente cliente, List<Venta> ventaMes) {
 		List<Venta> ventasPorCliente = new ArrayList<>();
 		for (Venta venta : ventaMes) {
 			if (venta.getCliente().equals(cliente)) {
@@ -37,7 +46,7 @@ public class RegistroVentas {
 		return ventasPorCliente;
 	}
 
-	public List<Venta> ventasPorMes(Mes mes) {
+	private List<Venta> ventasPorMes(Mes mes) {
 		List<Venta> ventaMes = new ArrayList<>();
 		for (Venta venta : getVentas()) {
 			if (venta.getMes().toString() == mes.toString()) {

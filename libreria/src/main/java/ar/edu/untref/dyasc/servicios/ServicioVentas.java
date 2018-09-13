@@ -10,7 +10,6 @@ import ar.edu.untref.dyasc.dominio.Producto;
 import ar.edu.untref.dyasc.dominio.RegistroSuscripcion;
 import ar.edu.untref.dyasc.dominio.RegistroVentas;
 import ar.edu.untref.dyasc.dominio.Revista;
-import ar.edu.untref.dyasc.dominio.Venta;
 
 public class ServicioVentas {
 
@@ -27,15 +26,13 @@ public class ServicioVentas {
 	}
 
 	public Double getMonto(Mes mes, Cliente cliente) {
-
-		List<Venta> ventaMes = registroVentas.ventasPorMes(mes);
-		List<Venta> ventasPorCliente = registroVentas.ventasPorCliente(cliente, ventaMes);
-		List<Producto> productos = registroVentas.productosVentasPorCliente(ventasPorCliente);
-
+		
+		List<Producto> productos = registroVentas.getProductosPorCliente(mes, cliente);
 		return calcularMontoTotal(productos, cliente);
 	}
 
 	public void efectuarCompra(ServicioCuentaCorriente servicioCuentaCorriente, Cliente cliente, Mes mes) {
+		
 		Double monto = getMonto(mes, cliente);
 		servicioCuentaCorriente.efectuarCompra(cliente, mes, monto);
 	}
@@ -67,9 +64,9 @@ public class ServicioVentas {
 	}
 
 	public Double getMontoAnual(Cliente cliente) {
-		
+
 		Double montoTotal = 0.0;
-		
+
 		for (Mes mes : Mes.getMeses()) {
 			montoTotal += getMonto(mes, cliente);
 		}
