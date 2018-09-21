@@ -3,12 +3,14 @@ package ar.edu.untref.dyasc;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import ar.edu.untref.dyasc.dominio.Bitacora;
 import ar.edu.untref.dyasc.dominio.Evento;
+import ar.edu.untref.dyasc.dominio.Monitor;
 import ar.edu.untref.dyasc.dominio.ServicioBitacora;
 
 public class ServicioBitacoraDebe {
@@ -18,6 +20,7 @@ public class ServicioBitacoraDebe {
 	private static final Evento EVENTO_3 = new Evento("Evento 3");
 
 	private Bitacora bitacora;
+
 	private ServicioBitacora servicioBitacora;
 
 	private LocalDateTime fechaActual;
@@ -26,7 +29,7 @@ public class ServicioBitacoraDebe {
 	public void inicializar() {
 
 		bitacora = new Bitacora();
-		servicioBitacora = new ServicioBitacora();
+		servicioBitacora = new ServicioBitacora(new Monitor());
 
 		fechaActual = LocalDateTime.now();
 	}
@@ -53,6 +56,12 @@ public class ServicioBitacoraDebe {
 					"\n" + "Evento 2 - " + formatoFecha() + 
 					"\n" + "Evento 3 - " + formatoFecha();
 		Assert.assertEquals(resultado, servicioBitacora.registrarEvento(registro));
+	}
+	
+	@After
+	public void separacionEnConsolaEnTest() {
+		System.out.println();
+		System.out.println("----------");
 	}
 
 	private String formatoFecha() {
