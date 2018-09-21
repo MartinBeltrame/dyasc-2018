@@ -3,15 +3,19 @@ package ar.edu.untref.dyasc.dominio;
 public class Bitacora {
 
 	private ServicioBitacora servicioBitacora;
-	private IRegistradorEvento registradorEvento;
 
-	public Bitacora(ServicioBitacora servicioBitacora, IRegistradorEvento registradorEvento) {
+	public Bitacora(ServicioBitacora servicioBitacora) {
 		this.servicioBitacora = servicioBitacora;
-		this.registradorEvento = registradorEvento;
 	}
 
-	public void registrarEvento() {
+	public void registrarEvento(String variableDestino) {
+
 		String resultado = servicioBitacora.obtenerResultado();
-		registradorEvento.registrar(resultado);
+
+		if (variableDestino.equals("CONSOLA")) {
+			new Monitor().registrar(resultado);
+		} else {
+			new Escritor(variableDestino).registrar(resultado);
+		}
 	}
 }
