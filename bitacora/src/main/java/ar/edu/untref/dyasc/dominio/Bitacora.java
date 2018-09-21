@@ -12,6 +12,7 @@ public class Bitacora {
 
 		String variableDestino = argumento.substring(17, argumento.length());
 		String resultado = servicioBitacora.obtenerResultado();
+		
 		TipoArgumento tipo = TipoArgumento.identificarTipo(variableDestino);
 
 		switch (tipo) {
