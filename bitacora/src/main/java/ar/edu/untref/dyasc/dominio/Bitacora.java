@@ -12,18 +12,23 @@ public class Bitacora {
 
 		String variableDestino = argumento.substring(17, argumento.length());
 		String resultado = servicioBitacora.obtenerResultado();
+		TipoArgumento tipo = TipoArgumento.identificarTipo(variableDestino);
 
-		if (variableDestino.contains(",")) {
+		switch (tipo) {
+		case CONSOLA_Y_ARCHIVO:
 			new Monitor().registrar(resultado);
 
 			String nombreArchivo = variableDestino.split(",")[0];
 			new Escritor(nombreArchivo).registrar(resultado);
-		} else {
-			if (variableDestino.equals("CONSOLA")) {
-				new Monitor().registrar(resultado);
-			} else {
-				new Escritor(variableDestino).registrar(resultado);
-			}
+			break;
+
+		case CONSOLA:
+			new Monitor().registrar(resultado);
+			break;
+
+		case ARCHIVO:
+			new Escritor(variableDestino).registrar(resultado);
+			break;
 		}
 	}
 }
