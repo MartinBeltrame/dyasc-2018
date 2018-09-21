@@ -8,6 +8,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import ar.edu.untref.dyasc.dominio.Bitacora;
+import ar.edu.untref.dyasc.dominio.Escritor;
 import ar.edu.untref.dyasc.dominio.Evento;
 import ar.edu.untref.dyasc.dominio.Monitor;
 import ar.edu.untref.dyasc.dominio.RepositorioBitacora;
@@ -22,9 +23,12 @@ public class BitacoraDebe {
 
 	@Mock
 	Monitor monitor;
+	@Mock
+	Escritor escritor;
 
 	private Bitacora bitacora;
 	private ServicioBitacora servicioBitacora;
+	private String resultado;
 
 	@Before
 	public void inicializar() {
@@ -34,15 +38,24 @@ public class BitacoraDebe {
 		repositorioBitacora.agregarEvento(EVENTO_3);
 
 		servicioBitacora = new ServicioBitacora(repositorioBitacora);
-		bitacora = new Bitacora(servicioBitacora, monitor);
+		resultado = servicioBitacora.obtenerResultado();
 	}
 
 	@Test
 	public void mostrar_el_resultado_obtenido_por_consola() {
 
+		bitacora = new Bitacora(servicioBitacora, monitor);
 		bitacora.registrarEvento();
 
-		String resultado = servicioBitacora.obtenerResultado();
 		Mockito.verify(monitor).registrar(resultado);
+	}
+
+	@Test
+	public void escribir_el_resultado_en_un_archivo_txt() {
+		
+		bitacora = new Bitacora(servicioBitacora, escritor);
+		bitacora.registrarEvento();
+		
+		Mockito.verify(escritor).registrar(resultado);
 	}
 }
