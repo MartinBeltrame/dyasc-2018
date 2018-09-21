@@ -2,14 +2,14 @@ package ar.edu.untref.dyasc.dominio;
 
 public class Escritor implements IRegistradorEvento {
 
-	private String ruta;
+	private String nombreArchivo;
 
-	public Escritor(String ruta) {
-		this.ruta = ruta;
+	public Escritor(String nombreArchivo) {
+		this.nombreArchivo = nombreArchivo;
 	}
 
 	@Override
 	public void registrar(String resultado) {
-		EscritorArchivos.escribir(resultado, ruta);
+		EscritorArchivos.escribir(resultado, nombreArchivo);
 	}
 }
