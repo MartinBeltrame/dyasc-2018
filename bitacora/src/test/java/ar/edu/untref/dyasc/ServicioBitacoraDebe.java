@@ -62,7 +62,15 @@ public class ServicioBitacoraDebe {
 		int anio = fechaActual.getYear();
 		int hora = fechaActual.getHour();
 		int minutos = fechaActual.getMinute();
+		String sDia = formatoString(dia);
+		String sMes = formatoString(mes);
+		String sHora = formatoString(hora);
+		String sMinutos = formatoString(minutos);
 
-		return dia + "/" + mes + "/" + anio + " - " + hora + ":" + minutos;
+		return sDia + "/" + sMes + "/" + anio + " - " + sHora + ":" + sMinutos;
+	}
+
+	private String formatoString(int fecha) {
+		return fecha < 10 ? ("0" + fecha) : ("" + fecha);
 	}
 }

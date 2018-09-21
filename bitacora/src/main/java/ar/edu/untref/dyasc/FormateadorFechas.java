@@ -12,6 +12,15 @@ public class FormateadorFechas {
 		int hora = fecha.getHour();
 		int minutos = fecha.getMinute();
 
-		return dia + "/" + mes + "/" + anio + " - " + hora + ":" + minutos;
+		String sDia = formatoString(dia);
+		String sMes = formatoString(mes);
+		String sHora = formatoString(hora);
+		String sMinutos = formatoString(minutos);
+
+		return sDia + "/" + sMes + "/" + anio + " - " + sHora + ":" + sMinutos;
+	}
+
+	private static String formatoString(int fecha) {
+		return fecha < 10 ? ("0" + fecha) : ("" + fecha);
 	}
 }
