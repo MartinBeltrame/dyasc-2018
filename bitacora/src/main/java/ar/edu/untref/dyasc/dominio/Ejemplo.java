@@ -13,7 +13,6 @@ public class Ejemplo {
 		if (args.length > 0) {
 		
 			String argumento = args[0];
-			String variableDestino = argumento.substring(17, argumento.length());
 
 			RepositorioBitacora repositorioBitacora = new RepositorioBitacora();
 			repositorioBitacora.agregarEvento(new Evento("Evento 1"));
@@ -24,7 +23,7 @@ public class Ejemplo {
 			ServicioBitacora servicioBitacora = new ServicioBitacora(repositorioBitacora);
 			Bitacora bitacora = new Bitacora(servicioBitacora);
 
-			bitacora.registrarEvento(variableDestino);
+			bitacora.registrarEvento(argumento);
 		
 		} else {
 			System.out.println("Opción no valida.");
