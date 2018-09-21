@@ -23,14 +23,6 @@ public class BitacoraDebe {
 	}
 
 	@Test
-	public void agregar_un_nuevo_evento_a_la_bitacora() {
-
-		bitacora.agregarEvento(EVENTO_1);
-
-		Assert.assertTrue(!bitacora.getRegistro().isEmpty());
-	}
-
-	@Test
 	public void agregar_un_nuevo_evento_con_la_hora_y_fecha_actual() {
 
 		bitacora.agregarEvento(EVENTO_1);
