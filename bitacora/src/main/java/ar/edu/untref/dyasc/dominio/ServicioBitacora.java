@@ -4,14 +4,15 @@ import java.util.List;
 
 public class ServicioBitacora {
 
-	private IRegistradorEvento iRegistradorEvento;
+	private RepositorioBitacora repositorioBitacora;
 
-	public ServicioBitacora(IRegistradorEvento iRegistradorEvento) {
-		this.iRegistradorEvento = iRegistradorEvento;
-
+	public ServicioBitacora(RepositorioBitacora repositorioBitacora) {
+		this.repositorioBitacora = repositorioBitacora;
 	}
 
-	public String registrarEvento(List<Evento> registro) {
+	public String obtenerResultado() {
+
+		List<Evento> registro = repositorioBitacora.getRegistro();
 
 		String resultado = "";
 		for (int i = 0; i < registro.size(); i++) {
@@ -23,8 +24,6 @@ public class ServicioBitacora {
 				resultado += "\n";
 			}
 		}
-
-		iRegistradorEvento.registrar(resultado);
 		return resultado;
 	}
 }

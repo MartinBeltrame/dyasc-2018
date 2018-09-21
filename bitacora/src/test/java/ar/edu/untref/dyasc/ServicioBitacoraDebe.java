@@ -1,16 +1,13 @@
 package ar.edu.untref.dyasc;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import ar.edu.untref.dyasc.dominio.Bitacora;
 import ar.edu.untref.dyasc.dominio.Evento;
-import ar.edu.untref.dyasc.dominio.Monitor;
+import ar.edu.untref.dyasc.dominio.RepositorioBitacora;
 import ar.edu.untref.dyasc.dominio.ServicioBitacora;
 
 public class ServicioBitacoraDebe {
@@ -19,7 +16,7 @@ public class ServicioBitacoraDebe {
 	private static final Evento EVENTO_2 = new Evento("Evento 2");
 	private static final Evento EVENTO_3 = new Evento("Evento 3");
 
-	private Bitacora bitacora;
+	private RepositorioBitacora repositorioBitacora;
 
 	private ServicioBitacora servicioBitacora;
 
@@ -28,40 +25,32 @@ public class ServicioBitacoraDebe {
 	@Before
 	public void inicializar() {
 
-		bitacora = new Bitacora();
-		servicioBitacora = new ServicioBitacora(new Monitor());
+		repositorioBitacora = new RepositorioBitacora();
+		servicioBitacora = new ServicioBitacora(repositorioBitacora);
 
 		fechaActual = LocalDateTime.now();
 	}
 
 	@Test
-	public void registrar_un_evento() {
+	public void obtener_el_resultado_en_string_para_un_evento_agregado() {
 
-		bitacora.agregarEvento(EVENTO_1);
-		List<Evento> registro = bitacora.getRegistro();
+		repositorioBitacora.agregarEvento(EVENTO_1);
 
 		String resultado = "Evento 1 - " + formatoFecha();
-		Assert.assertEquals(resultado, servicioBitacora.registrarEvento(registro));
+		Assert.assertEquals(resultado, servicioBitacora.obtenerResultado());
 	}
 
 	@Test
-	public void registrar_mas_de_un_evento() {
+	public void obtener_el_resultado_en_string_para_varios_eventos_agregados() {
 
-		bitacora.agregarEvento(EVENTO_1);
-		bitacora.agregarEvento(EVENTO_2);
-		bitacora.agregarEvento(EVENTO_3);
-		List<Evento> registro = bitacora.getRegistro();
+		repositorioBitacora.agregarEvento(EVENTO_1);
+		repositorioBitacora.agregarEvento(EVENTO_2);
+		repositorioBitacora.agregarEvento(EVENTO_3);
 
 		String resultado = "Evento 1 - " + formatoFecha() + 
-					"\n" + "Evento 2 - " + formatoFecha() + 
-					"\n" + "Evento 3 - " + formatoFecha();
-		Assert.assertEquals(resultado, servicioBitacora.registrarEvento(registro));
-	}
-	
-	@After
-	public void separacionEnConsolaEnTest() {
-		System.out.println();
-		System.out.println("----------");
+				"\n" + "Evento 2 - " + formatoFecha() + 
+				"\n" + "Evento 3 - " + formatoFecha();
+		Assert.assertEquals(resultado, servicioBitacora.obtenerResultado());
 	}
 
 	private String formatoFecha() {

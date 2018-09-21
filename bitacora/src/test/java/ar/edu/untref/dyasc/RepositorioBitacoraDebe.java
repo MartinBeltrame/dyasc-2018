@@ -6,28 +6,28 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import ar.edu.untref.dyasc.dominio.Bitacora;
 import ar.edu.untref.dyasc.dominio.Evento;
+import ar.edu.untref.dyasc.dominio.RepositorioBitacora;
 
-public class BitacoraDebe {
-
-	private Bitacora bitacora;
-	private LocalDateTime fechaActual;
+public class RepositorioBitacoraDebe {
 
 	private static final Evento EVENTO_1 = new Evento("Evento 1");
 
+	private RepositorioBitacora repositorioBitacora;
+	private LocalDateTime fechaActual;
+
 	@Before
 	public void inicializar() {
-		bitacora = new Bitacora();
+
+		repositorioBitacora = new RepositorioBitacora();
+
 		fechaActual = LocalDateTime.now();
 	}
 
 	@Test
 	public void agregar_un_nuevo_evento_con_la_hora_y_fecha_actual() {
 
-		bitacora.agregarEvento(EVENTO_1);
-
-		Evento EVENTO_1 = bitacora.getRegistro().get(0);
+		repositorioBitacora.agregarEvento(EVENTO_1);
 
 		String fecha = formatoFecha();
 		String mensaje = "Evento 1";
