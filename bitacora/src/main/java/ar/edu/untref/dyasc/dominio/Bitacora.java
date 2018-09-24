@@ -5,6 +5,7 @@ import java.util.Map;
 
 import ar.edu.untref.dyasc.salida.Archivo;
 import ar.edu.untref.dyasc.salida.Consola;
+import ar.edu.untref.dyasc.salida.ConsolaArchivo;
 import ar.edu.untref.dyasc.salida.Salida;
 
 public class Bitacora {
@@ -19,11 +20,11 @@ public class Bitacora {
 	public void registrarEvento(String argumento) {
 
 		String resultado = servicioBitacora.obtenerSalida();
+
+		TipoArgumento tipo = TipoArgumento.identificar(argumento);
+
 		String variableDestino = obtenerVariableDestino(argumento);
-
-		TipoArgumento tipo = TipoArgumento.identificar(variableDestino);
-
-		salidas.put(TipoArgumento.CONSOLA_Y_ARCHIVO, new Consola());
+		salidas.put(TipoArgumento.CONSOLA_Y_ARCHIVO, new ConsolaArchivo(variableDestino));
 		salidas.put(TipoArgumento.CONSOLA, new Consola());
 		salidas.put(TipoArgumento.ARCHIVO, new Archivo(variableDestino));
 
@@ -31,10 +32,17 @@ public class Bitacora {
 	}
 
 	private String obtenerVariableDestino(String argumento) {
+
+		String resultado;
+
 		if (argumento.length() > 16) {
-			return argumento.substring(17, argumento.length());
+			resultado = argumento.substring(17, argumento.length());
+			if (resultado.contains(",")) {
+				resultado = resultado.split(",")[0];
+			}
 		} else {
-			return "";
+			resultado = "";
 		}
+		return resultado;
 	}
 }

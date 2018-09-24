@@ -8,7 +8,7 @@ public enum TipoArgumento {
 		if (variableDestino.contains(",")) {
 			return TipoArgumento.CONSOLA_Y_ARCHIVO;
 		} else {
-			if (variableDestino.equals("CONSOLA")) {
+			if (variableDestino.contains("CONSOLA")) {
 				return TipoArgumento.CONSOLA;
 			} else {
 				return TipoArgumento.ARCHIVO;

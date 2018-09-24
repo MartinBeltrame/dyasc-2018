@@ -1,10 +1,10 @@
 package ar.edu.untref.dyasc.salida;
 
-public class Archivo implements Salida {
+public class ConsolaArchivo implements Salida {
 
 	private String nombreArchivo;
 
-	public Archivo(String nombreArchivo) {
+	public ConsolaArchivo(String nombreArchivo) {
 		this.nombreArchivo = nombreArchivo;
 	}
 
@@ -14,6 +14,7 @@ public class Archivo implements Salida {
 		if (nombreArchivo == null || nombreArchivo.equals("")) {
 			nombreArchivo = "bitacora.txt";
 		}
+		System.out.print(resultado);
 		Escritor.escribir(resultado, nombreArchivo);
 	}
 }
