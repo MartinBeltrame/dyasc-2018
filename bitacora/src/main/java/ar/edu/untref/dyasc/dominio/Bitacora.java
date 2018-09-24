@@ -7,6 +7,7 @@ import ar.edu.untref.dyasc.salida.Archivo;
 import ar.edu.untref.dyasc.salida.Consola;
 import ar.edu.untref.dyasc.salida.ConsolaArchivo;
 import ar.edu.untref.dyasc.salida.Salida;
+import ar.edu.untref.dyasc.utilidades.FormateadorVariable;
 
 public class Bitacora {
 
@@ -22,27 +23,12 @@ public class Bitacora {
 		String resultado = servicioBitacora.obtenerSalida();
 
 		TipoArgumento tipo = TipoArgumento.identificar(argumento);
+		String variableDestino = FormateadorVariable.obtenerVariableDestino(argumento);
 
-		String variableDestino = obtenerVariableDestino(argumento);
 		salidas.put(TipoArgumento.CONSOLA_Y_ARCHIVO, new ConsolaArchivo(variableDestino));
 		salidas.put(TipoArgumento.CONSOLA, new Consola());
 		salidas.put(TipoArgumento.ARCHIVO, new Archivo(variableDestino));
 
 		salidas.get(tipo).procesar(resultado);
-	}
-
-	private String obtenerVariableDestino(String argumento) {
-
-		String resultado;
-
-		if (argumento.length() > 16) {
-			resultado = argumento.substring(17, argumento.length());
-			if (resultado.contains(",")) {
-				resultado = resultado.split(",")[0];
-			}
-		} else {
-			resultado = "";
-		}
-		return resultado;
 	}
 }
