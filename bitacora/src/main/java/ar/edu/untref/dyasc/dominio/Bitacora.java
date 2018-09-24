@@ -7,7 +7,7 @@ import ar.edu.untref.dyasc.salida.Archivo;
 import ar.edu.untref.dyasc.salida.Consola;
 import ar.edu.untref.dyasc.salida.ConsolaArchivo;
 import ar.edu.untref.dyasc.salida.Salida;
-import ar.edu.untref.dyasc.utilidades.FormateadorVariable;
+import ar.edu.untref.dyasc.utilidades.Identificador;
 
 public class Bitacora {
 
@@ -22,8 +22,8 @@ public class Bitacora {
 
 		String resultado = servicioBitacora.obtenerSalida();
 
-		TipoArgumento tipo = TipoArgumento.identificar(argumento);
-		String variableDestino = FormateadorVariable.obtenerVariableDestino(argumento);
+		TipoArgumento tipo = Identificador.obtenerTipoArgumento(argumento);
+		String variableDestino = Identificador.obtenerVariableDestino(argumento);
 
 		salidas.put(TipoArgumento.CONSOLA_Y_ARCHIVO, new ConsolaArchivo(variableDestino));
 		salidas.put(TipoArgumento.CONSOLA, new Consola());
