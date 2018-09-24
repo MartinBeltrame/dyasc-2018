@@ -4,11 +4,7 @@ import java.util.List;
 
 public class ServicioBitacora {
 
-	private RepositorioBitacora repositorioBitacora;
-
-	public ServicioBitacora(RepositorioBitacora repositorioBitacora) {
-		this.repositorioBitacora = repositorioBitacora;
-	}
+	private RepositorioBitacora repositorioBitacora = new RepositorioBitacora();
 
 	public String obtenerSalida() {
 
@@ -25,5 +21,13 @@ public class ServicioBitacora {
 			}
 		}
 		return resultado;
+	}
+
+	public void agregarEvento(Evento evento) {
+		repositorioBitacora.agregarEvento(evento);
+	}
+
+	public List<Evento> registro() {
+		return repositorioBitacora.getRegistro();
 	}
 }

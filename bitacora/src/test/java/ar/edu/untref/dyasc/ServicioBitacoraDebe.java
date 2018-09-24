@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ar.edu.untref.dyasc.dominio.Evento;
-import ar.edu.untref.dyasc.dominio.RepositorioBitacora;
 import ar.edu.untref.dyasc.dominio.ServicioBitacora;
 
 public class ServicioBitacoraDebe {
@@ -16,8 +15,6 @@ public class ServicioBitacoraDebe {
 	private static final Evento EVENTO_2 = new Evento("Evento 2");
 	private static final Evento EVENTO_3 = new Evento("Evento 3");
 
-	private RepositorioBitacora repositorioBitacora;
-
 	private ServicioBitacora servicioBitacora;
 
 	private LocalDateTime fechaActual;
@@ -25,8 +22,7 @@ public class ServicioBitacoraDebe {
 	@Before
 	public void inicializar() {
 
-		repositorioBitacora = new RepositorioBitacora();
-		servicioBitacora = new ServicioBitacora(repositorioBitacora);
+		servicioBitacora = new ServicioBitacora();
 
 		fechaActual = LocalDateTime.now();
 	}
@@ -34,7 +30,7 @@ public class ServicioBitacoraDebe {
 	@Test
 	public void obtener_el_resultado_en_string_para_un_evento_agregado() {
 
-		repositorioBitacora.agregarEvento(EVENTO_1);
+		servicioBitacora.agregarEvento(EVENTO_1);
 
 		String resultado = "Evento 1 - " + formatoFecha();
 		Assert.assertEquals(resultado, servicioBitacora.obtenerSalida());
@@ -43,13 +39,12 @@ public class ServicioBitacoraDebe {
 	@Test
 	public void obtener_el_resultado_en_string_para_varios_eventos_agregados() {
 
-		repositorioBitacora.agregarEvento(EVENTO_1);
-		repositorioBitacora.agregarEvento(EVENTO_2);
-		repositorioBitacora.agregarEvento(EVENTO_3);
+		servicioBitacora.agregarEvento(EVENTO_1);
+		servicioBitacora.agregarEvento(EVENTO_2);
+		servicioBitacora.agregarEvento(EVENTO_3);
 
-		String resultado = "Evento 1 - " + formatoFecha() + 
-				"\n" + "Evento 2 - " + formatoFecha() + 
-				"\n" + "Evento 3 - " + formatoFecha();
+		String resultado = "Evento 1 - " + formatoFecha() + "\n" + "Evento 2 - " + formatoFecha() + "\n" + "Evento 3 - "
+				+ formatoFecha();
 		Assert.assertEquals(resultado, servicioBitacora.obtenerSalida());
 	}
 
