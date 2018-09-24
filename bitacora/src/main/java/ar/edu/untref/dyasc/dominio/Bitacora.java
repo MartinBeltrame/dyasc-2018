@@ -1,5 +1,8 @@
 package ar.edu.untref.dyasc.dominio;
 
+import ar.edu.untref.dyasc.salida.Archivo;
+import ar.edu.untref.dyasc.salida.Consola;
+
 public class Bitacora {
 
 	private ServicioBitacora servicioBitacora;
@@ -17,18 +20,18 @@ public class Bitacora {
 
 		switch (tipo) {
 		case CONSOLA_Y_ARCHIVO:
-			new Monitor().registrar(resultado);
+			new Consola().registrar(resultado);
 
 			String nombreArchivo = variableDestino.split(",")[0];
-			new Escritor(nombreArchivo).registrar(resultado);
+			new Archivo(nombreArchivo).registrar(resultado);
 			break;
 
 		case CONSOLA:
-			new Monitor().registrar(resultado);
+			new Consola().registrar(resultado);
 			break;
 
 		case ARCHIVO:
-			new Escritor(variableDestino).registrar(resultado);
+			new Archivo(variableDestino).registrar(resultado);
 			break;
 		}
 	}

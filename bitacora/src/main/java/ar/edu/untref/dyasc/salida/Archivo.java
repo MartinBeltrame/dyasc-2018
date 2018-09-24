@@ -1,13 +1,13 @@
-package ar.edu.untref.dyasc.dominio;
+package ar.edu.untref.dyasc.salida;
 
-public class Escritor implements IRegistradorEvento {
+public class Archivo implements Salida {
 
 	private String nombreArchivo;
 
-	public Escritor() {
+	public Archivo() {
 	}
 
-	public Escritor(String nombreArchivo) {
+	public Archivo(String nombreArchivo) {
 		this.nombreArchivo = nombreArchivo;
 	}
 

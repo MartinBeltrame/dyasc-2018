@@ -1,4 +1,4 @@
-package ar.edu.untref.dyasc;
+package ar.edu.untref.dyasc.aplicacion;
 
 import ar.edu.untref.dyasc.dominio.Bitacora;
 import ar.edu.untref.dyasc.dominio.Evento;

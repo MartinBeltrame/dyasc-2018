@@ -1,4 +1,4 @@
-package ar.edu.untref.dyasc.dominio;
+package ar.edu.untref.dyasc.salida;
 
 import java.io.File;
 import java.io.FileOutputStream;

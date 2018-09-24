@@ -1,6 +1,6 @@
-package ar.edu.untref.dyasc.dominio;
+package ar.edu.untref.dyasc.salida;
 
-public class Monitor implements IRegistradorEvento {
+public class Consola implements Salida {
 
 	@Override
 	public void registrar(String resultado) {
