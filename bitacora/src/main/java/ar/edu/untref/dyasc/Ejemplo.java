@@ -1,19 +1,16 @@
-package ar.edu.untref.dyasc.dominio;
+package ar.edu.untref.dyasc;
 
 import ar.edu.untre.dyasc.servicios.ServicioBitacora;
+import ar.edu.untref.dyasc.dominio.Bitacora;
+import ar.edu.untref.dyasc.dominio.Evento;
+import ar.edu.untref.dyasc.dominio.RepositorioBitacora;
 
 public class Ejemplo {
 
-	private String[] args;
+	public static void ejecutarPrograma(String[] args) {
 
-	public Ejemplo(String[] args) {
-		this.args = args;
-	}
-
-	public void ejecutarPrograma() {
-		
 		if (args.length > 0) {
-		
+
 			String argumento = args[0];
 
 			RepositorioBitacora repositorioBitacora = new RepositorioBitacora();
@@ -26,9 +23,13 @@ public class Ejemplo {
 			Bitacora bitacora = new Bitacora(servicioBitacora);
 
 			bitacora.registrarEvento(argumento);
-		
+
 		} else {
 			System.out.println("Opción no valida.");
 		}
+	}
+
+	public static void main(String[] args) {
+		ejecutarPrograma(args);
 	}
 }
