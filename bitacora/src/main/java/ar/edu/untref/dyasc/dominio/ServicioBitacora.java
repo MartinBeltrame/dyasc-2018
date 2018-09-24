@@ -10,7 +10,7 @@ public class ServicioBitacora {
 		this.repositorioBitacora = repositorioBitacora;
 	}
 
-	public String obtenerResultado() {
+	public String obtenerSalida() {
 
 		List<Evento> registro = repositorioBitacora.getRegistro();
 

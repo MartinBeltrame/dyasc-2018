@@ -37,7 +37,7 @@ public class ServicioBitacoraDebe {
 		repositorioBitacora.agregarEvento(EVENTO_1);
 
 		String resultado = "Evento 1 - " + formatoFecha();
-		Assert.assertEquals(resultado, servicioBitacora.obtenerResultado());
+		Assert.assertEquals(resultado, servicioBitacora.obtenerSalida());
 	}
 
 	@Test
@@ -50,7 +50,7 @@ public class ServicioBitacoraDebe {
 		String resultado = "Evento 1 - " + formatoFecha() + 
 				"\n" + "Evento 2 - " + formatoFecha() + 
 				"\n" + "Evento 3 - " + formatoFecha();
-		Assert.assertEquals(resultado, servicioBitacora.obtenerResultado());
+		Assert.assertEquals(resultado, servicioBitacora.obtenerSalida());
 	}
 
 	private String formatoFecha() {

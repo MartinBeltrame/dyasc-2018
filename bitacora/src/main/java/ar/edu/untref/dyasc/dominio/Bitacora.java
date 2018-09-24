@@ -13,26 +13,31 @@ public class Bitacora {
 
 	public void registrarEvento(String argumento) {
 
-		String variableDestino = argumento.substring(17, argumento.length());
-		String resultado = servicioBitacora.obtenerResultado();
-		
-		TipoArgumento tipo = TipoArgumento.identificarTipo(variableDestino);
+		String resultado = servicioBitacora.obtenerSalida();
 
-		switch (tipo) {
-		case CONSOLA_Y_ARCHIVO:
-			new Consola().registrar(resultado);
+		if (argumento.length() > 16) {
 
-			String nombreArchivo = variableDestino.split(",")[0];
-			new Archivo(nombreArchivo).registrar(resultado);
-			break;
+			String variableDestino = argumento.substring(17, argumento.length());
+			TipoArgumento tipo = TipoArgumento.identificar(variableDestino);
 
-		case CONSOLA:
-			new Consola().registrar(resultado);
-			break;
+			switch (tipo) {
+			case CONSOLA_Y_ARCHIVO:
+				new Consola().procesar(resultado);
 
-		case ARCHIVO:
-			new Archivo(variableDestino).registrar(resultado);
-			break;
+				String nombreArchivo = variableDestino.split(",")[0];
+				new Archivo(nombreArchivo).procesar(resultado);
+				break;
+
+			case CONSOLA:
+				new Consola().procesar(resultado);
+				break;
+
+			case ARCHIVO:
+				new Archivo(variableDestino).procesar(resultado);
+				break;
+			}
+		} else {
+			new Archivo().procesar(resultado);
 		}
 	}
 }
