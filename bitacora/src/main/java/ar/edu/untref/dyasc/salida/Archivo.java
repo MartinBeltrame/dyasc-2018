@@ -8,9 +8,6 @@ public class Archivo implements Salida {
 
 	private String nombreArchivo;
 
-	public Archivo() {
-	}
-
 	public Archivo(String nombreArchivo) {
 		this.nombreArchivo = nombreArchivo;
 	}
