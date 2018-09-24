@@ -1,7 +1,5 @@
 package ar.edu.untref.dyasc.dominio;
 
-import ar.edu.untre.dyasc.servicios.ServicioBitacora;
-
 public class Bitacora {
 
 	private ServicioBitacora servicioBitacora;

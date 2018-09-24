@@ -1,9 +1,6 @@
-package ar.edu.untre.dyasc.servicios;
+package ar.edu.untref.dyasc.dominio;
 
 import java.util.List;
-
-import ar.edu.untref.dyasc.dominio.Evento;
-import ar.edu.untref.dyasc.dominio.RepositorioBitacora;
 
 public class ServicioBitacora {
 

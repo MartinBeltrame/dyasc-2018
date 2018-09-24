@@ -1,13 +1,13 @@
 package ar.edu.untref.dyasc;
 
-import ar.edu.untre.dyasc.servicios.ServicioBitacora;
 import ar.edu.untref.dyasc.dominio.Bitacora;
 import ar.edu.untref.dyasc.dominio.Evento;
 import ar.edu.untref.dyasc.dominio.RepositorioBitacora;
+import ar.edu.untref.dyasc.dominio.ServicioBitacora;
 
 public class Ejemplo {
 
-	public static void ejecutarPrograma(String[] args) {
+	public static void main(String[] args) {
 
 		if (args.length > 0) {
 
@@ -27,9 +27,5 @@ public class Ejemplo {
 		} else {
 			System.out.println("Opción no valida.");
 		}
-	}
-
-	public static void main(String[] args) {
-		ejecutarPrograma(args);
 	}
 }

@@ -2,7 +2,7 @@ package ar.edu.untref.dyasc.dominio;
 
 import java.time.LocalDateTime;
 
-import ar.edu.untref.dyasc.FormateadorFechas;
+import ar.edu.untref.dyasc.utilidades.FormateadorFechas;
 
 public class Evento {
 

@@ -6,9 +6,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import ar.edu.untre.dyasc.servicios.ServicioBitacora;
 import ar.edu.untref.dyasc.dominio.Evento;
 import ar.edu.untref.dyasc.dominio.RepositorioBitacora;
+import ar.edu.untref.dyasc.dominio.ServicioBitacora;
 
 public class ServicioBitacoraDebe {
 
