@@ -16,7 +16,7 @@ public class IdentificadorDebe {
 	}
 
 	@Test
-	public void devolver_solo_el_nombre_del_archivo_txt_cuando_el_tipo_de_argumento_es_archivo_consola() {
+	public void devolver_solo_el_nombre_del_archivo_cuando_el_tipo_de_argumento_es_archivo_consola() {
 
 		String obtenido = Identificador.obtenerVariableDestino("bitacora.destino=bitacora.txt,CONSOLA");
 
