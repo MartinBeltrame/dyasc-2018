@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc.salida;
 
-public class HorizontalDirecta implements IGenerador {
+public class Horizontal implements IGenerador {
 
 	private String respuesta;
 

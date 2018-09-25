@@ -17,9 +17,9 @@ public abstract class Salida {
 		opciones.put("-o=hd", TipoArgumento.HORIZONTAL_DIRECTA);
 		opciones.put("-o=hi", TipoArgumento.HORIZONTAL_INVERTIDA);
 
-		generadores.put(TipoArgumento.VERTICAL_DIRECTA, new VerticalDirecta());
+		generadores.put(TipoArgumento.VERTICAL_DIRECTA, new Vertical());
 		generadores.put(TipoArgumento.VERTICAL_INVERTIDA, new VerticalInvertida());
-		generadores.put(TipoArgumento.HORIZONTAL_DIRECTA, new HorizontalDirecta());
+		generadores.put(TipoArgumento.HORIZONTAL_DIRECTA, new Horizontal());
 		generadores.put(TipoArgumento.HORIZONTAL_INVERTIDA, new HorizontalInvertida());
 	}
 
