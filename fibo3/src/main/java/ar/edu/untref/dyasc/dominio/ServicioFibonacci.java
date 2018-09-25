@@ -5,7 +5,11 @@ import java.util.Map;
 
 import ar.edu.untref.dyasc.salida.Archivo;
 import ar.edu.untref.dyasc.salida.GeneradorHorizontal;
+import ar.edu.untref.dyasc.salida.GeneradorHorizontalInvertida;
+import ar.edu.untref.dyasc.salida.GeneradorSumatoriaHorizontal;
+import ar.edu.untref.dyasc.salida.GeneradorSumatoriaVertical;
 import ar.edu.untref.dyasc.salida.GeneradorVertical;
+import ar.edu.untref.dyasc.salida.GeneradorVerticalInvertida;
 import ar.edu.untref.dyasc.salida.IGenerador;
 import ar.edu.untref.dyasc.salida.Pantalla;
 import ar.edu.untref.dyasc.utilidades.Constantes;
@@ -21,9 +25,14 @@ public class ServicioFibonacci {
 	public ServicioFibonacci() {
 
 		generadores.put(Constantes.OPCION_VD, new GeneradorVertical());
-		generadores.put(Constantes.OPCION_VI, new GeneradorVertical());
+		generadores.put(Constantes.OPCION_VI, new GeneradorVerticalInvertida(operaciones));
+		generadores.put(Constantes.OPCION_VDS, new GeneradorSumatoriaVertical(operaciones));
+		generadores.put(Constantes.OPCION_VIS, new GeneradorSumatoriaVertical(operaciones));
+
 		generadores.put(Constantes.OPCION_HD, new GeneradorHorizontal());
-		generadores.put(Constantes.OPCION_HI, new GeneradorHorizontal());
+		generadores.put(Constantes.OPCION_HI, new GeneradorHorizontalInvertida(operaciones));
+		generadores.put(Constantes.OPCION_HDS, new GeneradorSumatoriaHorizontal(operaciones));
+		generadores.put(Constantes.OPCION_HIS, new GeneradorSumatoriaHorizontal(operaciones));
 
 		salidas.put(Constantes.MODO_ARCHIVO, new Archivo("salida.txt"));
 		salidas.put(Constantes.MODO_PANTALLA, new Pantalla());
@@ -32,10 +41,6 @@ public class ServicioFibonacci {
 	public String obtenerRespuesta(String opcion, int numero) {
 
 		int[] serie = fibonacci.serieDe(numero);
-
-		if (opcion.equals(Constantes.OPCION_HI) || opcion.equals(Constantes.OPCION_VI)) {
-			serie = operaciones.invertirSerie(serie);
-		}
 		return generadores.get(opcion).generarRespuesta(numero, serie);
 	}
 

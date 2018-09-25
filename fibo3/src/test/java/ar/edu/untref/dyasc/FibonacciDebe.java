@@ -61,7 +61,7 @@ public class FibonacciDebe {
 
 		int[] obtenido = fibonacci.serieDe(2);
 
-		int[] esperado = { 0, 1, 1 };
+		int[] esperado = { 0, 1 };
 		Assert.assertArrayEquals(esperado, obtenido);
 	}
 
@@ -70,7 +70,7 @@ public class FibonacciDebe {
 
 		int[] obtenido = fibonacci.serieDe(5);
 
-		int[] esperado = { 0, 1, 1, 2, 3, 5 };
+		int[] esperado = { 0, 1, 1, 2, 3 };
 		Assert.assertArrayEquals(esperado, obtenido);
 	}
 }

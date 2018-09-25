@@ -16,27 +16,22 @@ public class Programa {
 			ServicioFibonacci servicioFibonacci = new ServicioFibonacci();
 
 			if (tamanio == 1) {
-				String respuesta = servicioFibonacci.obtenerRespuesta(Constantes.OPCION_HD, numero);
+				String opcion = Constantes.OPCION_HD;
+				String respuesta = servicioFibonacci.obtenerRespuesta(opcion, numero);
 				servicioFibonacci.generarSalida(Constantes.MODO_PANTALLA, respuesta);
 			} else if (tamanio == 2) {
 				String opcion = args[0];
 
 				String respuesta = servicioFibonacci.obtenerRespuesta(opcion, numero);
 				servicioFibonacci.generarSalida(Constantes.MODO_PANTALLA, respuesta);
-			} else {
+			} else if (tamanio == 3) {
 
-				String opcion = args[0];
+				String opcion = args[0] + args[1];
 
-				if (args[1].contains(Constantes.MODO_SUMATORIA)) {
-					String modo = args[1];
-					// java -jar fibo.jar -o=vd -f=salida.txt -m=s 5
+				String respuesta = servicioFibonacci.obtenerRespuesta(opcion, numero);
+				servicioFibonacci.generarSalida(Constantes.MODO_PANTALLA, respuesta);
 
-				} else if (args[1].contains(Constantes.MODO_ARCHIVO)) {
-					String nombreArchivo = args[1];
-					String modo = args[2];
-					// java -jar fibo.jar -o=vd -f=salida.txt -m=s 5
-
-				}
+				// java -jar fibo.jar -o=hd -m=s 5
 			}
 		}
 	}

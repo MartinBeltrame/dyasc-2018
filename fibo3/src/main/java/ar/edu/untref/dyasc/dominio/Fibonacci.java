@@ -18,9 +18,9 @@ public class Fibonacci {
 		int[] serie = null;
 		
 		if (numero > 0) {
-			serie = new int[numero + 1];
+			serie = new int[numero];
 
-			for (int i = 0; i <= numero; i++) {
+			for (int i = 0; i < numero; i++) {
 				serie[i] = fibonacciDe(i);
 			}
 		} else {
