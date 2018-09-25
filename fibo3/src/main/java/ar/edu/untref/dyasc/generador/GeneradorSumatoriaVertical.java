@@ -4,7 +4,6 @@ public class GeneradorSumatoriaVertical extends Generador {
 
 	@Override
 	public String generarRespuesta(int numero, int[] serie) {
-		String respuesta = "fibo<" + numero + ">s:\n" + operaciones.sumatoria(serie);
-		return respuesta;
+		return "fibo<" + numero + ">s:\n" + operaciones.sumatoria(serie);
 	}
 }

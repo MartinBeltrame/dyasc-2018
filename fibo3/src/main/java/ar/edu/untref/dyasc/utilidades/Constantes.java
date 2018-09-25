@@ -14,4 +14,7 @@ public class Constantes {
 	public static final String OPCION_VIS = "-o=vi-m=s";
 	public static final String OPCION_HDS = "-o=hd-m=s";
 	public static final String OPCION_HIS = "-o=hi-m=s";
+
+	public static final String SUMATORIA = "-m=s";
+	public static final String LISTA = "-m=l";
 }

@@ -26,7 +26,6 @@ public class Fibonacci {
 		} else {
 			serie = new int[1];
 		}
-
 		return serie;
 	}
 }
