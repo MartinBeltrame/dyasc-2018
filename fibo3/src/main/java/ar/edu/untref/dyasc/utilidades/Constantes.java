@@ -9,11 +9,9 @@ public class Constantes {
 	public static final String OPCION_VI = "-o=vi";
 	public static final String OPCION_HD = "-o=hd";
 	public static final String OPCION_HI = "-o=hi";
-	
+
 	public static final String OPCION_VDS = "-o=vd-m=s";
 	public static final String OPCION_VIS = "-o=vi-m=s";
 	public static final String OPCION_HDS = "-o=hd-m=s";
 	public static final String OPCION_HIS = "-o=hi-m=s";
-
-	public static final String OPCION_SUMATORIA = "-m=s";
 }

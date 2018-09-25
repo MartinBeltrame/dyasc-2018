@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc.salida;
 
-public class GeneradorHorizontal implements IGenerador {
+public class GeneradorHorizontal extends Generador {
 
 	@Override
 	public String generarRespuesta(int numero, int[] serie) {

@@ -1,14 +1,6 @@
 package ar.edu.untref.dyasc.salida;
 
-import ar.edu.untref.dyasc.dominio.Operaciones;
-
-public class GeneradorVerticalInvertida implements IGenerador {
-
-	private Operaciones operaciones;
-
-	public GeneradorVerticalInvertida(Operaciones operaciones) {
-		this.operaciones = operaciones;
-	}
+public class GeneradorVerticalInvertida extends Generador {
 
 	@Override
 	public String generarRespuesta(int numero, int[] serie) {
