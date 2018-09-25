@@ -1,14 +1,16 @@
 package ar.edu.untref.dyasc.salida;
 
-public class Vertical implements IGenerador {
+public class GeneradorHorizontal implements IGenerador {
+
+	private String respuesta;
 
 	@Override
 	public String generarRespuesta(int numero, int[] serie) {
 
-		String respuesta = "fibo<" + numero + ">:";
+		respuesta = "fibo<" + numero + ">:";
 
 		for (int i = 0; i < serie.length; i++) {
-			respuesta += "\n" + serie[i];
+			respuesta += " " + serie[i];
 		}
 		return respuesta;
 	}

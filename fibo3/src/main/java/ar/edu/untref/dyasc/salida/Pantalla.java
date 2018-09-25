@@ -1,15 +1,10 @@
 package ar.edu.untref.dyasc.salida;
 
-import ar.edu.untref.dyasc.dominio.TipoArgumento;
-
 public class Pantalla extends Salida {
 
 	public void mostrarResultado(Integer numero, String opcion, String nombreArchivo) {
 
-		TipoArgumento tipo = opciones.get(opcion);
-
-		generadores.get(tipo).generarRespuesta(numero);
-		String respuesta = generadores.get(tipo).getRespuesta();
+		String respuesta = generadores.get(opcion).generarRespuesta(numero, null);
 
 		if (nombreArchivo == "") {
 			System.out.print(respuesta);
