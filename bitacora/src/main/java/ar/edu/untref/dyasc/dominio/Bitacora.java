@@ -13,6 +13,7 @@ public class Bitacora {
 
 	private ServicioBitacora servicioBitacora = new ServicioBitacora();
 	private Map<TipoArgumento, Salida> salidas = new HashMap<>();
+
 	private String argumento;
 	private TipoArgumento tipo;
 
@@ -22,7 +23,7 @@ public class Bitacora {
 	}
 
 	private void inicializar() {
-		
+
 		tipo = Identificador.obtenerTipoArgumento(argumento);
 		String variableDestino = Identificador.obtenerVariableDestino(argumento);
 
@@ -31,8 +32,11 @@ public class Bitacora {
 		salidas.put(TipoArgumento.ARCHIVO, new Archivo(variableDestino));
 	}
 
-	public void registrarEvento() {
-		
+	public void registrarEvento(String mensaje) {
+		servicioBitacora.agregarEvento(new Evento(mensaje));
+	}
+
+	public void procesar() {
 		String resultado = servicioBitacora.obtenerSalida();
 		salidas.get(tipo).procesar(resultado);
 	}
