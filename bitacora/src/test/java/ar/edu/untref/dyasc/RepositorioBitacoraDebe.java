@@ -42,13 +42,15 @@ public class RepositorioBitacoraDebe {
 		int anio = fechaActual.getYear();
 		int hora = fechaActual.getHour();
 		int minutos = fechaActual.getMinute();
+		int segundos = fechaActual.getSecond();
 
 		String sDia = formatoString(dia);
 		String sMes = formatoString(mes);
 		String sHora = formatoString(hora);
 		String sMinutos = formatoString(minutos);
+		String sSegundos = formatoString(segundos);
 
-		return sDia + "/" + sMes + "/" + anio + " - " + sHora + ":" + sMinutos;
+		return sDia + "/" + sMes + "/" + anio + " - " + sHora + ":" + sMinutos + ":" + sSegundos;
 	}
 
 	private String formatoString(int fecha) {

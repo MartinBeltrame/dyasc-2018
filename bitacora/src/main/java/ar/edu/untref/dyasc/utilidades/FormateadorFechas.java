@@ -25,9 +25,9 @@ public class FormateadorFechas {
 	private static String formatoString(int fecha) {
 		return fecha < 10 ? ("0" + fecha) : ("" + fecha);
 	}
-	
+
 	public static String formatearHora(LocalDateTime fecha) {
-	
+
 		int hora = fecha.getHour();
 		int minutos = fecha.getMinute();
 		int segundos = fecha.getSecond();
