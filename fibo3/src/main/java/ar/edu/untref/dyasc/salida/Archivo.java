@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc.salida;
 
-public class Archivo extends Salida {
+public class Archivo implements ISalida {
 
 	private String nombreArchivo;
 
