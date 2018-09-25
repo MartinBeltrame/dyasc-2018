@@ -1,7 +1,7 @@
 package ar.edu.untref.dyasc.salida;
 
 import ar.edu.untref.dyasc.dominio.Fibonacci;
-import ar.edu.untref.dyasc.dominio.Funciones;
+import ar.edu.untref.dyasc.dominio.Operaciones;
 
 public class VerticalSumatoria implements IGenerador {
 
@@ -18,7 +18,7 @@ public class VerticalSumatoria implements IGenerador {
 			serieOriginal[i] = resultado;
 		}
 
-		int sumatoria = Funciones.sumatoria(serieOriginal);
+		int sumatoria = Operaciones.sumatoria(serieOriginal);
 		respuesta += sumatoria;
 	}
 

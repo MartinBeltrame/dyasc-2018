@@ -1,8 +1,8 @@
 package ar.edu.untref.dyasc.dominio;
 
-public class Funciones {
+public class Operaciones {
 
-	public static int[] invertirSerie(int[] serie) {
+	public int[] invertirSerie(int[] serie) {
 
 		int[] resultado = new int[serie.length];
 
@@ -12,7 +12,7 @@ public class Funciones {
 		return resultado;
 	}
 
-	public static int sumatoria(int[] serie) {
+	public int sumatoria(int[] serie) {
 
 		int resultado = 0;
 

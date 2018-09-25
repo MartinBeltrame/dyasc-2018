@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ar.edu.untref.dyasc.dominio.Fibonacci;
-import ar.edu.untref.dyasc.dominio.Funciones;
 
 public class FibonacciDebe {
 
@@ -74,12 +73,4 @@ public class FibonacciDebe {
 		int[] esperado = { 0, 1, 1, 2, 3, 5 };
 		Assert.assertArrayEquals(esperado, obtenido);
 	}
-
-	// @Test
-	// public void invertirUnaSerieDeNumeros() {
-	// int[] original = { 0, 1, 1, 2, 3 };
-	// int[] resultado = Funciones.invertirSerie(original);
-	// int[] esperado = { 3, 2, 1, 1, 0 };
-	// Assert.assertArrayEquals(esperado, resultado);
-	// }
 }
