@@ -6,7 +6,7 @@ Al ejecutar bitacora.jar, previamente generado, se deben pasar los argumentos, q
   * bitacora.destino=CONSOLA
   * bitacora.destino=[nombreArchivo.txt],CONSOLA
 
-Una vez ejecutado el comando se podrá escribir un mensaje por pantalla representando un evento.   
+Una vez ejecutado el comando, se podrá escribir un mensaje por pantalla que representa al evento.   
 La estructura debería ser del siguiente estilo:
 ```
 java -jar bitacora.jar bitacora.destino=CONSOLA
