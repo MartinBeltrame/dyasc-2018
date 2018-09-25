@@ -25,4 +25,17 @@ public class FormateadorFechas {
 	private static String formatoString(int fecha) {
 		return fecha < 10 ? ("0" + fecha) : ("" + fecha);
 	}
+	
+	public static String formatearHora(LocalDateTime fecha) {
+	
+		int hora = fecha.getHour();
+		int minutos = fecha.getMinute();
+		int segundos = fecha.getSecond();
+
+		String sHora = formatoString(hora);
+		String sMinutos = formatoString(minutos);
+		String sSegundos = formatoString(segundos);
+
+		return sHora + sMinutos + sSegundos;
+	}
 }
