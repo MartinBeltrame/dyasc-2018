@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import ar.edu.untref.dyasc.salida.GeneradorHorizontal;
+import ar.edu.untref.dyasc.generador.GeneradorHorizontal;
 
 public class GeneradorHorizontalDebe {
 

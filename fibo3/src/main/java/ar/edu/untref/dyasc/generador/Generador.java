@@ -1,4 +1,4 @@
-package ar.edu.untref.dyasc.salida;
+package ar.edu.untref.dyasc.generador;
 
 import ar.edu.untref.dyasc.dominio.Operaciones;
 

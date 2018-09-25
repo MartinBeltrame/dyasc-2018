@@ -1,4 +1,4 @@
-package ar.edu.untref.dyasc.salida;
+package ar.edu.untref.dyasc.generador;
 
 public class GeneradorSumatoriaHorizontal extends Generador {
 
