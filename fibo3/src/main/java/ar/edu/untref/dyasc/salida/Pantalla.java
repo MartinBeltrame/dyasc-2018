@@ -1,25 +1,8 @@
-package ar.edu.untref.dyasc.dominio;
+package ar.edu.untref.dyasc.salida;
 
-import java.util.HashMap;
-import java.util.Map;
+import ar.edu.untref.dyasc.dominio.TipoArgumento;
 
-public class Monitor {
-
-	private Map<String, TipoArgumento> opciones = new HashMap<>();
-	private Map<TipoArgumento, IGenerador> generadores = new HashMap<>();
-
-	public Monitor() {
-
-		opciones.put("-o=vd", TipoArgumento.VERTICAL_DIRECTA);
-		opciones.put("-o=vi", TipoArgumento.VERTICAL_INVERTIDA);
-		opciones.put("-o=hd", TipoArgumento.HORIZONTAL_DIRECTA);
-		opciones.put("-o=hi", TipoArgumento.HORIZONTAL_INVERTIDA);
-
-		generadores.put(TipoArgumento.VERTICAL_DIRECTA, new GeneradorVD());
-		generadores.put(TipoArgumento.VERTICAL_INVERTIDA, new GeneradorVI());
-		generadores.put(TipoArgumento.HORIZONTAL_DIRECTA, new GeneradorHD());
-		generadores.put(TipoArgumento.HORIZONTAL_INVERTIDA, new GeneradorHI());
-	}
+public class Pantalla extends Salida {
 
 	public void mostrarResultado(Integer numero, String opcion, String nombreArchivo) {
 
@@ -59,5 +42,11 @@ public class Monitor {
 		// break;
 		// }
 		// }
+	}
+
+	@Override
+	public void procesar() {
+		// TODO Auto-generated method stub
+
 	}
 }

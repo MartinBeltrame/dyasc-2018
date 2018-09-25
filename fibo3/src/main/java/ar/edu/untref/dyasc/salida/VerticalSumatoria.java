@@ -1,6 +1,9 @@
-package ar.edu.untref.dyasc.dominio;
+package ar.edu.untref.dyasc.salida;
 
-public class GeneradorVMS implements IGenerador {
+import ar.edu.untref.dyasc.dominio.Fibonacci;
+import ar.edu.untref.dyasc.dominio.Funciones;
+
+public class VerticalSumatoria implements IGenerador {
 
 	private String respuesta;
 
@@ -11,7 +14,7 @@ public class GeneradorVMS implements IGenerador {
 		respuesta = "fibo<" + numero + ">s:\n";
 
 		for (int i = 0; i < numero; i++) {
-			int resultado = Funciones.fibonacciDeUnNumero(i);
+			int resultado = Fibonacci.fibonacciDe(i);
 			serieOriginal[i] = resultado;
 		}
 

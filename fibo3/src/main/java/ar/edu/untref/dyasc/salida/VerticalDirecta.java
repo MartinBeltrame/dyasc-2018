@@ -1,6 +1,8 @@
-package ar.edu.untref.dyasc.dominio;
+package ar.edu.untref.dyasc.salida;
 
-public class GeneradorVD implements IGenerador {
+import ar.edu.untref.dyasc.dominio.Fibonacci;
+
+public class VerticalDirecta implements IGenerador {
 
 	private String respuesta = "";
 
@@ -10,7 +12,7 @@ public class GeneradorVD implements IGenerador {
 		respuesta = "fibo<" + numero + ">:\n";
 
 		for (int i = 0; i < numero; i++) {
-			int resultado = Funciones.fibonacciDeUnNumero(i);
+			int resultado = Fibonacci.fibonacciDe(i);
 			respuesta += resultado + "\n";
 		}
 	}

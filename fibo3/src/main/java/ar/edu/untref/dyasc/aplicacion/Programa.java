@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc.aplicacion;
 
-import ar.edu.untref.dyasc.dominio.Monitor;
+import ar.edu.untref.dyasc.salida.Pantalla;
 
 public class Programa {
 
@@ -11,7 +11,7 @@ public class Programa {
 
 		int tamanio = args.length;
 		
-		Monitor monitor = new Monitor();
+		Pantalla monitor = new Pantalla();
 
 		if (tamanio > 0 && tamanio <= 4) {
 
