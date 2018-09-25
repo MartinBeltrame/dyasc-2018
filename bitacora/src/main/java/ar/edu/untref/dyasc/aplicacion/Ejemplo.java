@@ -13,14 +13,16 @@ public class Ejemplo {
 			String argumento = args[0];
 
 			Bitacora bitacora = new Bitacora(argumento);
+			
 			Scanner entrada = new Scanner(System.in);
-
 			boolean entradaAbierta = true;
 
 			while (entradaAbierta && entrada.hasNextLine()) {
 
 				String mensaje = entrada.nextLine();
-				if (mensaje.toLowerCase().equals("fin")) {
+				boolean comandoFinalizacion = mensaje.toLowerCase().equals("fin");
+				
+				if (comandoFinalizacion) {
 					entrada.close();
 					entradaAbierta = false;
 				} else {
