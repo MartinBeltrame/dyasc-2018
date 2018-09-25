@@ -1,10 +1,8 @@
-package ar.edu.untref.dyasc;
+package ar.edu.untref.dyasc.dominio;
 
-import ar.edu.untref.dyac.interfaces.IGenerador;
+public class GeneradorVI implements IGenerador {
 
-public class GeneradorHI implements IGenerador {
-
-	private String respuesta = "";
+	private String respuesta;
 
 	@Override
 	public void construirRespuesta(int numero) {
@@ -19,7 +17,7 @@ public class GeneradorHI implements IGenerador {
 
 		int[] serieInvertida = Funciones.invertirSerie(serieOriginal);
 		for (int i = 0; i < numero; i++) {
-			respuesta += " " + serieInvertida[i];
+			respuesta += "\n" + serieInvertida[i];
 		}
 	}
 

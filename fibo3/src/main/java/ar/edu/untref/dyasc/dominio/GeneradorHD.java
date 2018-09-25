@@ -1,6 +1,4 @@
-package ar.edu.untref.dyasc;
-
-import ar.edu.untref.dyac.interfaces.IGenerador;
+package ar.edu.untref.dyasc.dominio;
 
 public class GeneradorHD implements IGenerador {
 

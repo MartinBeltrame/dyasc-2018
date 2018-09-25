@@ -1,10 +1,10 @@
-package ar.edu.untref.dyasc;
+package ar.edu.untref.dyasc.dominio;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class EscritorArchivos {
+public class Escritor {
 
 	public static void escribir(String contenido, String nombreArchivo) {
 

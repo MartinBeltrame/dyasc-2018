@@ -3,6 +3,8 @@ package ar.edu.untref.dyasc;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.edu.untref.dyasc.dominio.Funciones;
+
 public class FuncionTest {
 
 	@Test

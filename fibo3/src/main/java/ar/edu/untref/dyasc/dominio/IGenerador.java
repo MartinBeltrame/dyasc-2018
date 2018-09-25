@@ -1,4 +1,4 @@
-package ar.edu.untref.dyac.interfaces;
+package ar.edu.untref.dyasc.dominio;
 
 public interface IGenerador {
 

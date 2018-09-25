@@ -1,16 +1,14 @@
-package ar.edu.untref.dyasc;
+package ar.edu.untref.dyasc.dominio;
 
-import ar.edu.untref.dyac.interfaces.IGenerador;
+public class GeneradorHMS implements IGenerador {
 
-public class GeneradorVMS implements IGenerador {
-
-	private String respuesta;
+	private String respuesta = "";
 
 	@Override
 	public void construirRespuesta(int numero) {
 
 		int[] serieOriginal = new int[numero];
-		respuesta = "fibo<" + numero + ">s:\n";
+		respuesta = "fibo<" + numero + ">s: ";
 
 		for (int i = 0; i < numero; i++) {
 			int resultado = Funciones.fibonacciDeUnNumero(i);
