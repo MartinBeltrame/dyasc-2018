@@ -7,7 +7,7 @@ public class VerticalDirecta implements IGenerador {
 	private String respuesta = "";
 
 	@Override
-	public void construirRespuesta(int numero) {
+	public void imprimir(int numero) {
 
 		respuesta = "fibo<" + numero + ">:\n";
 

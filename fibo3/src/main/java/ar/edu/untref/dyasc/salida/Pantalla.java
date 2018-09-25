@@ -8,7 +8,7 @@ public class Pantalla extends Salida {
 
 		TipoArgumento tipo = opciones.get(opcion);
 
-		generadores.get(tipo).construirRespuesta(numero);
+		generadores.get(tipo).generarRespuesta(numero);
 		String respuesta = generadores.get(tipo).getRespuesta();
 
 		if (nombreArchivo == "") {

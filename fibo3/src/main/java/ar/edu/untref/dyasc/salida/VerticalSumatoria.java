@@ -8,7 +8,7 @@ public class VerticalSumatoria implements IGenerador {
 	private String respuesta;
 
 	@Override
-	public void construirRespuesta(int numero) {
+	public void imprimir(int numero) {
 
 		int[] serieOriginal = new int[numero];
 		respuesta = "fibo<" + numero + ">s:\n";
