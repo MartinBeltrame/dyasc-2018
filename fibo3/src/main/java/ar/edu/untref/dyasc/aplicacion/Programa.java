@@ -22,6 +22,7 @@ public class Programa {
 			} else if (tamanio == 2) {
 				monitor.mostrarResultado(numero, args[0], "");
 			} else {
+				
 				if (args[1].contains(MODO_FUNCIONAMIENTO)) {
 					String opcion = args[0];
 					String modo = args[1];
