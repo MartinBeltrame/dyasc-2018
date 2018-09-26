@@ -23,7 +23,7 @@ public class IdentificadorArgumentos {
 			}
 		} else if (tamanio == 4) {
 			opcion = args[0];
-			if (args[1].equals(Constantes.SUMATORIA)) {
+			if (args[2].equals(Constantes.SUMATORIA)) {
 				opcion = args[0] + args[2];
 			}
 			modo = Constantes.MODO_ARCHIVO;
