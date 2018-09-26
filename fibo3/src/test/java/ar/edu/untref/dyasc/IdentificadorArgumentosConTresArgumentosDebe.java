@@ -14,6 +14,11 @@ public class IdentificadorArgumentosConTresArgumentosDebe {
 	private String[] TRES_ARGUMENTOS_CON_OPCION_VDS = new String[] { "-o=vd", "-m=s", "5" };
 	private String[] TRES_ARGUMENTOS_CON_OPCION_VIS = new String[] { "-o=vi", "-m=s", "5" };
 
+	private String[] TRES_ARGUMENTOS_CON_OPCION_HD_Y_MODO_ARCHIVO = new String[] { "-o=hd", "-f=archivo.txt", "5" };
+	private String[] TRES_ARGUMENTOS_CON_OPCION_HI_Y_MODO_ARCHIVO = new String[] { "-o=hi", "-f=archivo.txt", "5" };
+	private String[] TRES_ARGUMENTOS_CON_OPCION_VD_Y_MODO_ARCHIVO = new String[] { "-o=vd", "-f=archivo.txt", "5" };
+	private String[] TRES_ARGUMENTOS_CON_OPCION_VI_Y_MODO_ARCHIVO = new String[] { "-o=vi", "-f=archivo.txt", "5" };
+
 	private IdentificadorArgumentos identificadorArgumentos;
 
 	@Before
@@ -63,5 +68,49 @@ public class IdentificadorArgumentosConTresArgumentosDebe {
 
 		Assert.assertEquals(Constantes.OPCION_VIS, opcion);
 		Assert.assertEquals(Constantes.MODO_PANTALLA, modo);
+	}
+
+	@Test
+	public void identificar_los_argumentos_con_opcion_horizontal_directa_y_modo_archivo() {
+
+		String[] resultado = identificadorArgumentos.identificar(TRES_ARGUMENTOS_CON_OPCION_HD_Y_MODO_ARCHIVO);
+		String opcion = resultado[0];
+		String modo = resultado[1];
+
+		Assert.assertEquals(Constantes.OPCION_HD, opcion);
+		Assert.assertEquals(Constantes.MODO_ARCHIVO, modo);
+	}
+
+	@Test
+	public void identificar_los_argumentos_con_opcion_horizontal_inversa_y_modo_archivo() {
+
+		String[] resultado = identificadorArgumentos.identificar(TRES_ARGUMENTOS_CON_OPCION_HI_Y_MODO_ARCHIVO);
+		String opcion = resultado[0];
+		String modo = resultado[1];
+
+		Assert.assertEquals(Constantes.OPCION_HI, opcion);
+		Assert.assertEquals(Constantes.MODO_ARCHIVO, modo);
+	}
+
+	@Test
+	public void identificar_los_argumentos_con_opcion_vertical_directa_y_modo_archivo() {
+
+		String[] resultado = identificadorArgumentos.identificar(TRES_ARGUMENTOS_CON_OPCION_VD_Y_MODO_ARCHIVO);
+		String opcion = resultado[0];
+		String modo = resultado[1];
+
+		Assert.assertEquals(Constantes.OPCION_VD, opcion);
+		Assert.assertEquals(Constantes.MODO_ARCHIVO, modo);
+	}
+
+	@Test
+	public void identificar_los_argumentos_con_opcion_vertical_inversa_y_modo_archivo() {
+
+		String[] resultado = identificadorArgumentos.identificar(TRES_ARGUMENTOS_CON_OPCION_VI_Y_MODO_ARCHIVO);
+		String opcion = resultado[0];
+		String modo = resultado[1];
+
+		Assert.assertEquals(Constantes.OPCION_VI, opcion);
+		Assert.assertEquals(Constantes.MODO_ARCHIVO, modo);
 	}
 }
