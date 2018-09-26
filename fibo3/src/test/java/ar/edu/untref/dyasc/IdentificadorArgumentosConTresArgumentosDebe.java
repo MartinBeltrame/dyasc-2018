@@ -22,9 +22,9 @@ public class IdentificadorArgumentosConTresArgumentosDebe {
 	private String[] TRES_ARGUMENTOS_CON_OPCION_VIL = new String[] { "-o=vi", "-m=l", "5" };
 
 	// Modo archivo
-	private String[] TRES_ARGUMENTOS_CON_OPCION_HD_Y_MODO_ARCHIVO = new String[] { "-o=hd", "-f=archivo.txt", "5" };
+	private String[] TRES_ARGUMENTOS_CON_OPCION_HD_Y_MODO_ARCHIVO = new String[] { "-o=hd", "-f=salida.txt", "5" };
 	private String[] TRES_ARGUMENTOS_CON_OPCION_HI_Y_MODO_ARCHIVO = new String[] { "-o=hi", "-f=archivo.txt", "5" };
-	private String[] TRES_ARGUMENTOS_CON_OPCION_VD_Y_MODO_ARCHIVO = new String[] { "-o=vd", "-f=archivo.txt", "5" };
+	private String[] TRES_ARGUMENTOS_CON_OPCION_VD_Y_MODO_ARCHIVO = new String[] { "-o=vd", "-f=respuesta.txt", "5" };
 	private String[] TRES_ARGUMENTOS_CON_OPCION_VI_Y_MODO_ARCHIVO = new String[] { "-o=vi", "-f=archivo.txt", "5" };
 
 	private IdentificadorArgumentos identificadorArgumentos;
@@ -127,9 +127,11 @@ public class IdentificadorArgumentosConTresArgumentosDebe {
 		String[] resultado = identificadorArgumentos.identificar(TRES_ARGUMENTOS_CON_OPCION_HD_Y_MODO_ARCHIVO);
 		String opcion = resultado[0];
 		String modo = resultado[1];
+		String nombreArchivo = resultado[2];
 
 		Assert.assertEquals(Constantes.OPCION_HD, opcion);
 		Assert.assertEquals(Constantes.MODO_ARCHIVO, modo);
+		Assert.assertEquals("salida.txt", nombreArchivo);
 	}
 
 	@Test
@@ -138,9 +140,11 @@ public class IdentificadorArgumentosConTresArgumentosDebe {
 		String[] resultado = identificadorArgumentos.identificar(TRES_ARGUMENTOS_CON_OPCION_HI_Y_MODO_ARCHIVO);
 		String opcion = resultado[0];
 		String modo = resultado[1];
+		String nombreArchivo = resultado[2];
 
 		Assert.assertEquals(Constantes.OPCION_HI, opcion);
 		Assert.assertEquals(Constantes.MODO_ARCHIVO, modo);
+		Assert.assertEquals("archivo.txt", nombreArchivo);
 	}
 
 	@Test
@@ -149,9 +153,11 @@ public class IdentificadorArgumentosConTresArgumentosDebe {
 		String[] resultado = identificadorArgumentos.identificar(TRES_ARGUMENTOS_CON_OPCION_VD_Y_MODO_ARCHIVO);
 		String opcion = resultado[0];
 		String modo = resultado[1];
+		String nombreArchivo = resultado[2];
 
 		Assert.assertEquals(Constantes.OPCION_VD, opcion);
 		Assert.assertEquals(Constantes.MODO_ARCHIVO, modo);
+		Assert.assertEquals("respuesta.txt", nombreArchivo);
 	}
 
 	@Test
@@ -160,8 +166,10 @@ public class IdentificadorArgumentosConTresArgumentosDebe {
 		String[] resultado = identificadorArgumentos.identificar(TRES_ARGUMENTOS_CON_OPCION_VI_Y_MODO_ARCHIVO);
 		String opcion = resultado[0];
 		String modo = resultado[1];
+		String nombreArchivo = resultado[2];
 
 		Assert.assertEquals(Constantes.OPCION_VI, opcion);
 		Assert.assertEquals(Constantes.MODO_ARCHIVO, modo);
+		Assert.assertEquals("archivo.txt", nombreArchivo);
 	}
 }

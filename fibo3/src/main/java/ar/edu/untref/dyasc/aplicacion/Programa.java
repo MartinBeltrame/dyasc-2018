@@ -13,13 +13,13 @@ public class Programa {
 
 			Integer numero = Integer.valueOf(args[tamanio - 1]);
 
-			ServicioFibonacci servicioFibonacci = new ServicioFibonacci();
 			IdentificadorArgumentos identificadorArgumentos = new IdentificadorArgumentos();
-
 			String[] argumentos = identificadorArgumentos.identificar(args);
 			String opcion = argumentos[0];
 			String modo = argumentos[1];
+			String nombreArchivo = argumentos[2];
 
+			ServicioFibonacci servicioFibonacci = new ServicioFibonacci(nombreArchivo);
 			String respuesta = servicioFibonacci.obtenerRespuesta(opcion, numero);
 			servicioFibonacci.generarSalida(modo, respuesta);
 		}

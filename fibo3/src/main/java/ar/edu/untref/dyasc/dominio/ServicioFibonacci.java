@@ -20,9 +20,11 @@ public class ServicioFibonacci {
 	private Map<String, Generador> generadores = new HashMap<>();
 	private Map<String, ISalida> salidas = new HashMap<>();
 
-	private Fibonacci fibonacci = new Fibonacci();
+	private Fibonacci fibonacci;
 
-	public ServicioFibonacci() {
+	public ServicioFibonacci(String nombreArchivo) {
+
+		fibonacci = new Fibonacci();
 
 		generadores.put(Constantes.OPCION_VD, new GeneradorVertical());
 		generadores.put(Constantes.OPCION_VI, new GeneradorVerticalInvertida());
@@ -33,7 +35,7 @@ public class ServicioFibonacci {
 		generadores.put(Constantes.OPCION_HDS, new GeneradorSumatoriaHorizontal());
 		generadores.put(Constantes.OPCION_HIS, new GeneradorSumatoriaHorizontal());
 
-		salidas.put(Constantes.MODO_ARCHIVO, new Archivo("salida.txt"));
+		salidas.put(Constantes.MODO_ARCHIVO, new Archivo(nombreArchivo));
 		salidas.put(Constantes.MODO_PANTALLA, new Pantalla());
 	}
 
