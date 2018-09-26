@@ -40,7 +40,6 @@ public class ServicioFibonacci {
 	}
 
 	public String obtenerRespuesta(String opcion, int numero) {
-
 		int[] serie = fibonacci.serieDe(numero);
 		return generadores.get(opcion).generarRespuesta(numero, serie);
 	}
